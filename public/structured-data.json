@@ -89,9 +89,7 @@
       "closes": "16:00"
     }
   ],
-  "sameAs": [
-    "https://www.instagram.com/pr_remaps"
-  ],
+  "sameAs": [],
   "knowsAbout": [
     "ECU Programming",
     "ECU Remapping",

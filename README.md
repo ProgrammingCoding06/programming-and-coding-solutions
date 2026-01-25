@@ -38,7 +38,6 @@ SEO and deployment tips
 Contact & social
 
 - Phone: +44 7783 597186
-- Instagram: https://www.instagram.com/pr_remaps
 
 If you'd like, I can:
 - Generate optimized image assets from your Figma exports.
