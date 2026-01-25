@@ -3,7 +3,6 @@ dist/
 .env
 .DS_Store
 .vscode/
-public/assets/
 *.log
 *.err
 nul
