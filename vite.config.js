@@ -42,6 +42,7 @@ export default defineConfig({
                   'stars',
                   'stars2',
                   'stars3',
+                  'hero-logo-wrap',
                 ],
                 deep: [/^data-/, /aria-/, /^framer-rating/],
                 greedy: [/carousel/, /cookie/],

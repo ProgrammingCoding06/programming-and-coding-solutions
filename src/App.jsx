@@ -162,7 +162,7 @@ function Hero() {
       </div>
       <div className="animated-gradient" aria-hidden="true" />
       <div className="container hero-inner">
-        <picture>
+        <picture className="hero-logo-wrap">
           <source type="image/webp" srcSet="/assets/logo.webp" />
           <img className="hero-logo" src="/assets/logo.png" alt="PR REMAPS logo" width="1536" height="1024" />
         </picture>
