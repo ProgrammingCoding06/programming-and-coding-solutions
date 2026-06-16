@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import {
   ArrowUpRight,
   Car,
-  Check,
   ChevronDown,
   Gauge,
   Mail,
@@ -91,24 +90,6 @@ const skills = [
   'Mobile support',
 ]
 
-const whyChoices = [
-  {
-    title: 'Diagnostic-first approach',
-    body: 'Every fault is checked and confirmed before any coding, calibration or programming begins.',
-  },
-  {
-    title: 'Mobile coverage',
-    body: 'On-site appointments across London, Kent and Essex.',
-  },
-  {
-    title: 'Dealer-level equipment',
-    body: 'Stored codes and live data are checked with professional diagnostic tools.',
-  },
-  {
-    title: 'Licensed software',
-    body: 'Coding, calibration and remapping completed through a licensed software workflow.',
-  },
-]
 
 const processSteps = [
   {
@@ -240,41 +221,38 @@ function Work() {
 function About() {
   return (
     <section className="section about-section" id="about">
-      <div className="container about-grid">
-        <div className="about-copy reveal">
-          <SectionTag>About</SectionTag>
-          <h2>Diagnostic-led programming, not guesswork.</h2>
-          <p>
-            Every job starts by inspecting the fault, confirming the route, then completing suitable
-            coding, calibration or ECU work with professional tools.
-          </p>
-
-          <div className="about-panels">
-            <article>
+      <div className="work-full reveal">
+        <picture>
+          <source
+            type="image/webp"
+            srcSet="/assets/AboutUs-320.webp 320w, /assets/AboutUs-480.webp 480w, /assets/AboutUs-960.webp 960w"
+            sizes="100vw"
+          />
+          <img
+            src="/assets/AboutUs-960.jpg"
+            alt="Diagnostic equipment in use"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <div className="work-overlay">
+          <div className="work-title-row">
+            <SectionTag>About</SectionTag>
+            <h2>Diagnostic-led programming, not guesswork.</h2>
+            <p className="about-subtitle">
+              Every job starts by inspecting the fault, confirming the route, then completing
+              suitable coding, calibration or ECU work with professional tools.
+            </p>
+          </div>
+          <div className="about-stats">
+            <div className="about-stat">
               <strong>10+</strong>
               <span>Years experience</span>
-            </article>
-            <article>
+            </div>
+            <div className="about-stat">
               <strong>500+</strong>
               <span>Vehicles tuned</span>
-            </article>
-          </div>
-        </div>
-
-        <div className="why-panel reveal">
-          <SectionTag>Why Choose Us</SectionTag>
-          <div className="why-list">
-            {whyChoices.map((item) => (
-              <article key={item.title}>
-                <span className="why-icon" aria-hidden="true">
-                  <Check size={18} aria-hidden="true" />
-                </span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.body}</p>
-                </div>
-              </article>
-            ))}
+            </div>
           </div>
         </div>
       </div>

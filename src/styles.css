@@ -743,9 +743,7 @@ p {
 .service-tile,
 .review-card,
 .policy-card,
-.why-panel,
 .process-card,
-.about-panels article,
 .stat-row article,
 .faq-item {
   border: 1px solid var(--border);
@@ -755,7 +753,8 @@ p {
 
 /* ── Work section (full-video layout) ── */
 
-.work-section {
+.work-section,
+.about-section {
   padding: 0;
 }
 
@@ -765,7 +764,8 @@ p {
   min-height: clamp(560px, 86vh, 940px);
 }
 
-.work-full video {
+.work-full video,
+.work-full img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -863,7 +863,50 @@ p {
   padding: 2px 8px;
 }
 
-.about-grid,
+/* ── About section stats ── */
+
+.about-subtitle {
+  margin: 0;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 560px;
+  line-height: 1.55;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 28px;
+  max-width: 420px;
+}
+
+.about-stat {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding-right: 32px;
+}
+
+.about-stat + .about-stat {
+  padding-left: 32px;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.about-stat strong {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 700;
+  color: var(--red);
+  line-height: 0.9;
+}
+
+.about-stat span {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.68);
+}
+
 .process-grid,
 .reviews-grid,
 .contact-faq-grid {
@@ -873,8 +916,6 @@ p {
   align-items: start;
 }
 
-
-.about-copy,
 .process-content,
 .reviews-copy,
 .faq-column {
@@ -883,8 +924,6 @@ p {
   gap: 24px;
 }
 
-.about-copy,
-.why-panel,
 .process-content,
 .reviews-copy,
 .review-list,
@@ -893,7 +932,6 @@ p {
   min-width: 0;
 }
 
-.about-copy p,
 .process-content p,
 .services-top p,
 .reviews-copy p {
@@ -902,7 +940,6 @@ p {
   font-size: 18px;
 }
 
-.about-panels,
 .stat-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -910,7 +947,6 @@ p {
   margin-top: 12px;
 }
 
-.about-panels article,
 .stat-row article {
   display: grid;
   gap: 8px;
@@ -919,57 +955,15 @@ p {
   padding: 22px;
 }
 
-.about-panels strong,
 .stat-row strong {
   color: var(--red);
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   line-height: 0.9;
 }
 
-.about-panels span,
 .stat-row span {
   color: var(--white-65);
   font-weight: 700;
-}
-
-.why-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 24px;
-  padding: 24px;
-}
-
-.why-list {
-  display: grid;
-  gap: 16px;
-}
-
-.why-list article {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  gap: 16px;
-  align-items: start;
-}
-
-.why-icon {
-  display: grid;
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--red);
-  color: var(--white);
-}
-
-.why-list h3 {
-  margin-bottom: 4px;
-  font-size: 1.15rem;
-}
-
-.why-list p {
-  margin-bottom: 0;
-  font-size: 15px;
 }
 
 .skill-cloud {
@@ -1589,7 +1583,6 @@ p {
 }
 
 @media (max-width: 980px) {
-  .about-grid,
   .process-grid,
   .reviews-grid,
   .contact-faq-grid,
@@ -1668,7 +1661,6 @@ p {
     font-size: clamp(2.6rem, 14vw, 3.5rem);
   }
 
-  .about-copy p,
   .process-content p,
   .services-top p,
   .reviews-copy p,
@@ -1686,8 +1678,20 @@ p {
     width: 80px;
   }
 
+  .about-stats {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    row-gap: 20px;
+  }
+
+  .about-stat + .about-stat {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-left: 0;
+    padding-top: 20px;
+  }
+
   .hero-actions,
-  .about-panels,
   .stat-row,
   .service-bento,
   .contact-form,
