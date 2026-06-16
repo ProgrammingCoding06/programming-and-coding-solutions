@@ -1,0 +1,33 @@
+{
+  "name": "Programming & Coding Solutions",
+  "short_name": "PR REMAPS",
+  "description": "Permanent software solutions for AdBlue, SCR, NOx, and EGR faults. Professional ECU programming and dealer-level diagnostics.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/logo-120.png",
+      "sizes": "120x120",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logo-240.png",
+      "sizes": "240x240",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["automotive", "business", "services"],
+  "screenshots": [
+    {
+      "src": "/assets/Hero-480.jpg",
+      "sizes": "480x856",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    }
+  ]
+}

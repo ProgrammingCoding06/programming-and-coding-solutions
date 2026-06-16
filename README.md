@@ -1,58 +1,41 @@
-Landing page scaffold for a small business
+# PR REMAPS website
 
-How to use
+React/Vite website for Programming & Coding Solutions / PR REMAPS.
 
-1. Install dependencies:
+## Local development
 
 ```powershell
-cd "c:/Users/madle/Desktop/programming-and-coding-solutions"
 npm install
-```
-
-2. Run dev server:
-
-```powershell
 npm run dev
 ```
 
-3. Build for production:
+## Production build
 
 ```powershell
 npm run build
+npm run preview
 ```
 
-Where to place Figma assets
+The build outputs to `dist/` and includes both:
 
-- Put images in `public/assets/` and reference them from `/assets/` in the code.
-- Update `src/styles.css` to match fonts/colors from Figma.
+- `/`
+- `/privacy-policy.html`
 
-SEO and deployment tips
+## Content and assets
 
-- Ensure `index.html` has a descriptive title and meta description (already added).
-- Add Open Graph and Twitter card meta tags so links share with a preview image (`public/assets/social-preview.png`).
-- Keep `robots.txt` and `sitemap.xml` in `public/` and ensure they reference the correct production domain.
-- Use descriptive alt text for images and semantic HTML for better indexing.
-- Use structured data (JSON-LD) for LocalBusiness (already added) and verify with Google's Rich Results Test.
-- Deploy to a reliable host (Netlify, Vercel, or similar) and connect your domain. After deployment, submit your sitemap to Google Search Console.
+- Main page sections live in `src/App.jsx`.
+- The Framer MCP code component is adapted in `src/components/StarRating.jsx`.
+- Global styling lives in `src/styles.css`.
+- Replace images in `public/assets/` and keep the same filenames to avoid code changes.
 
-Contact & social
+## Deployment
 
-- Phone: +44 7783 597186
+This project is ready for Vercel or any static host that serves the Vite `dist/` output. Security
+headers are configured in `vercel.json`, and Netlify-style headers remain in `public/_headers`.
 
-If you'd like, I can:
-- Generate optimized image assets from your Figma exports.
-- Configure a simple GitHub Actions workflow to deploy to Netlify/Vercel automatically.
-- Run accessibility and SEO checks and produce a short report.
-
-Running Lighthouse locally
-
-To run a Lighthouse audit locally you'll need Chrome or Chromium installed. On Windows you can install Chrome from Google or use a Chromium build.
-
-Once Chrome is installed, start the dev server and run:
+Run checks before deployment:
 
 ```powershell
-npm run dev
-npx -y lighthouse http://localhost:5174/ --output html --output-path lighthouse-report.html
+npm run lint
+npm run build
 ```
-
-This generates a human-readable `lighthouse-report.html` you can open in your browser.
