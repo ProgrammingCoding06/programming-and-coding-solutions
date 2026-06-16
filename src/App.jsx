@@ -196,9 +196,9 @@ function useStarfield() {
     const w = Math.max(window.innerWidth, 1400)
     const h = 2000
     const root = document.documentElement
-    root.style.setProperty('--star1', makeShadow(700, w, h))
-    root.style.setProperty('--star2', makeShadow(200, w, h))
-    root.style.setProperty('--star3', makeShadow(100, w, h))
+    root.style.setProperty('--star1', makeShadow(350, w, h))
+    root.style.setProperty('--star2', makeShadow(100, w, h))
+    root.style.setProperty('--star3', makeShadow(50, w, h))
   }, [])
 }
 
@@ -435,6 +435,7 @@ function Work() {
             muted
             loop
             playsInline
+            preload="none"
             aria-hidden="true"
           />
         </div>
