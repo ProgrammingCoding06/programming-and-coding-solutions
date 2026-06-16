@@ -357,7 +357,9 @@ function Hero() {
       <div className="container hero-inner">
         <img className="hero-logo" src="/assets/logo.png" alt="PR REMAPS logo" width="1536" height="1024" />
         <h1 className="hero-line">
-          Vehicle software solutions with <span className="text-accent">diagnostic precision.</span>
+          <span className="hero-line-1">Vehicle software solutions with</span>
+          <br />
+          <span className="text-accent hero-line-2">diagnostic precision.</span>
         </h1>
         <p>
           Programming &amp; Coding Solutions provides mobile AdBlue, SCR, NOx, EGR, ECU remapping

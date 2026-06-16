@@ -509,6 +509,15 @@ button:disabled {
   animation-delay: 0.55s;
 }
 
+.hero-line-1,
+.hero-line-2 {
+  hyphens: none;
+}
+
+.hero-line-2 {
+  white-space: nowrap;
+}
+
 h1,
 h2,
 h3,
