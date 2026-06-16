@@ -264,30 +264,32 @@ function Services() {
     <section className="section services-section" id="services">
       <div className="work-full reveal">
         <div className="work-overlay">
-          <div className="services-left">
-            <div className="skill-cloud">
-              {skills.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
+          <div className="services-top">
+            <div className="services-left">
+              <div className="skill-cloud">
+                {skills.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
+            </div>
+            <div className="services-right">
+              <div className="work-title-row">
+                <SectionTag>Services</SectionTag>
+                <h2>Specialist vehicle software services.</h2>
+                <p className="about-subtitle">
+                  Mobile support for emissions faults, diagnostics, coding and ECU programming across
+                  London, Kent and Essex.
+                </p>
+              </div>
             </div>
           </div>
-          <div className="services-right">
-            <div className="work-title-row">
-              <SectionTag>Services</SectionTag>
-              <h2>Specialist vehicle software services.</h2>
-              <p className="about-subtitle">
-                Mobile support for emissions faults, diagnostics, coding and ECU programming across
-                London, Kent and Essex.
-              </p>
-            </div>
-            <div className="work-items services-items">
-              {services.map((service) => (
-                <div className="work-item" key={service.title}>
-                  <strong className="work-item__label">{service.title}</strong>
-                  <p className="work-item__title">{service.body}</p>
-                </div>
-              ))}
-            </div>
+          <div className="work-items">
+            {services.map((service) => (
+              <div className="work-item" key={service.title}>
+                <strong className="work-item__label">{service.title}</strong>
+                <p className="work-item__title">{service.body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
