@@ -507,13 +507,10 @@ button:disabled {
 }
 
 .hero-logo-wrap {
-  display: block;
+  display: contents;
 }
 
 .hero-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   width: clamp(975px, 121vw, 1885px);
   max-width: 150%;
   height: auto;
