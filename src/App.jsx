@@ -56,25 +56,25 @@ const projects = [
     label: 'AdBlue / SCR',
     title: 'Countdowns, dosing faults and limp mode support.',
     meta: 'Mobile diagnostic route',
-    image: '/assets/Hero-960.jpg',
+    image: '/assets/Hero-960.webp',
   },
   {
     label: 'NOx / EGR',
     title: 'Recurring emissions faults checked before programming.',
     meta: 'Live data + fault history',
-    image: '/assets/AboutUs-960.jpg',
+    image: '/assets/AboutUs-960.webp',
   },
   {
     label: 'ECU',
     title: 'Coding, calibration and remapping for supported vehicles.',
     meta: 'Licensed software workflow',
-    image: '/assets/Hero-480.jpg',
+    image: '/assets/Hero-480.webp',
   },
   {
     label: 'Diagnostics',
     title: 'Dealer-level checks before any permanent solution.',
     meta: 'London, Kent and Essex',
-    image: '/assets/AboutUs-480.jpg',
+    image: '/assets/AboutUs-480.webp',
   },
 ]
 
@@ -344,18 +344,28 @@ function Hero() {
   return (
     <section className="hero">
       <div className="hero-media" aria-hidden="true">
-        <img
-          src="/assets/Hero-960.jpg"
-          srcSet="/assets/Hero-240.jpg 240w, /assets/Hero-320.jpg 320w, /assets/Hero-480.jpg 480w, /assets/Hero-960.jpg 960w"
-          sizes="100vw"
-          alt=""
-          fetchPriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet="/assets/Hero-240.webp 240w, /assets/Hero-320.webp 320w, /assets/Hero-480.webp 480w, /assets/Hero-960.webp 960w, /assets/Hero-1440.webp 1440w, /assets/Hero-1920.webp 1920w"
+            sizes="100vw"
+          />
+          <img
+            src="/assets/Hero-960.jpg"
+            srcSet="/assets/Hero-240.jpg 240w, /assets/Hero-320.jpg 320w, /assets/Hero-480.jpg 480w, /assets/Hero-960.jpg 960w"
+            sizes="100vw"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
       </div>
       <div className="animated-gradient" aria-hidden="true" />
       <div className="container hero-inner">
-        <img className="hero-logo" src="/assets/logo.png" alt="PR REMAPS logo" width="1536" height="1024" />
+        <picture>
+          <source type="image/webp" srcSet="/assets/logo.webp" />
+          <img className="hero-logo" src="/assets/logo.png" alt="PR REMAPS logo" width="1536" height="1024" />
+        </picture>
         <h1 className="hero-line">
           <span className="hero-line-1">Vehicle software solutions with</span>
           <br />
@@ -494,12 +504,19 @@ function Process() {
     <section className="section process-section" id="process">
       <div className="container process-grid">
         <div className="process-image reveal">
-          <img
-            src="/assets/AboutUs-960.jpg"
-            alt="Diagnostic equipment in use"
-            loading="lazy"
-            decoding="async"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/assets/AboutUs-320.webp 320w, /assets/AboutUs-480.webp 480w, /assets/AboutUs-960.webp 960w"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <img
+              src="/assets/AboutUs-960.jpg"
+              alt="Diagnostic equipment in use"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         </div>
 
         <div className="process-content reveal">
@@ -906,7 +923,10 @@ function Footer() {
         <div className="footer-grid">
           <div className="footer-col">
             <a className="footer-brand" href="/" aria-label="PR REMAPS home">
-              <img src="/assets/logo-120.png" alt="" width="38" height="38" />
+              <picture>
+                <source type="image/webp" srcSet="/assets/logo-120.webp" />
+                <img src="/assets/logo-120.png" alt="" width="38" height="38" />
+              </picture>
               <span>PR REMAPS</span>
             </a>
             <p>
