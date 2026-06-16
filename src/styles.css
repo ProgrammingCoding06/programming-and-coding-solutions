@@ -758,6 +758,10 @@ p {
   padding: 0;
 }
 
+.about-section .work-overlay {
+  background: none;
+}
+
 .work-full {
   position: relative;
   overflow: hidden;

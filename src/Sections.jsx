@@ -222,19 +222,6 @@ function About() {
   return (
     <section className="section about-section" id="about">
       <div className="work-full reveal">
-        <picture>
-          <source
-            type="image/webp"
-            srcSet="/assets/AboutUs-320.webp 320w, /assets/AboutUs-480.webp 480w, /assets/AboutUs-960.webp 960w"
-            sizes="100vw"
-          />
-          <img
-            src="/assets/AboutUs-960.jpg"
-            alt="Diagnostic equipment in use"
-            loading="lazy"
-            decoding="async"
-          />
-        </picture>
         <div className="work-overlay">
           <div className="work-title-row">
             <SectionTag>About</SectionTag>
