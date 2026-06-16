@@ -265,6 +265,13 @@ function Services() {
       <div className="work-full reveal">
         <div className="work-overlay">
           <div className="services-left">
+            <div className="skill-cloud">
+              {skills.map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+            </div>
+          </div>
+          <div className="services-right">
             <div className="work-title-row">
               <SectionTag>Services</SectionTag>
               <h2>Specialist vehicle software services.</h2>
@@ -272,18 +279,6 @@ function Services() {
                 Mobile support for emissions faults, diagnostics, coding and ECU programming across
                 London, Kent and Essex.
               </p>
-              <div className="skill-cloud">
-                {skills.map((skill) => (
-                  <span key={skill}>{skill}</span>
-                ))}
-              </div>
-            </div>
-          </div>
-          <div className="services-right">
-            <div className="skill-cloud">
-              {skills.map((skill) => (
-                <span key={`sr-${skill}`}>{skill}</span>
-              ))}
             </div>
             <div className="work-items services-items">
               {services.map((service) => (

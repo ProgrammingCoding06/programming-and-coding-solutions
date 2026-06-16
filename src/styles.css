@@ -931,7 +931,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 52%;
+  width: 38%;
 }
 
 /* ── Services section — two-column desktop layout ── */
@@ -946,10 +946,6 @@ p {
   flex: 0 0 44%;
   display: flex;
   flex-direction: column;
-}
-
-.services-left .work-title-row {
-  max-width: none;
 }
 
 .services-right {
@@ -1551,10 +1547,6 @@ p {
   .services-left {
     flex: none;
     width: 100%;
-  }
-
-  .services-left .work-title-row {
-    max-width: 680px;
   }
 
   .services-right {
