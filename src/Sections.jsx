@@ -209,22 +209,24 @@ function About() {
     <section className="section about-section" id="about">
       <div className="work-full reveal">
         <div className="work-overlay">
-          <div className="work-title-row">
-            <SectionTag>About</SectionTag>
-            <h2>Diagnostic-led programming, not guesswork.</h2>
-            <p className="about-subtitle">
-              Every job starts by inspecting the fault, confirming the route, then completing
-              suitable coding, calibration or ECU work with professional tools.
-            </p>
-          </div>
-          <div className="about-stats">
-            <div className="about-stat">
-              <strong>10+</strong>
-              <span>Years experience</span>
+          <div className="about-content">
+            <div className="work-title-row">
+              <SectionTag>About</SectionTag>
+              <h2>Diagnostic-led programming, not guesswork.</h2>
+              <p className="about-subtitle">
+                Every job starts by inspecting the fault, confirming the route, then completing
+                suitable coding, calibration or ECU work with professional tools.
+              </p>
             </div>
-            <div className="about-stat">
-              <strong>500+</strong>
-              <span>Vehicles tuned</span>
+            <div className="about-stats">
+              <div className="about-stat">
+                <strong>10+</strong>
+                <span>Years experience</span>
+              </div>
+              <div className="about-stat">
+                <strong>500+</strong>
+                <span>Vehicles tuned</span>
+              </div>
             </div>
           </div>
         </div>
@@ -262,26 +264,35 @@ function Services() {
     <section className="section services-section" id="services">
       <div className="work-full reveal">
         <div className="work-overlay">
-          <div className="work-title-row">
-            <SectionTag>Services</SectionTag>
-            <h2>Specialist vehicle software services.</h2>
-            <p className="about-subtitle">
-              Mobile support for emissions faults, diagnostics, coding and ECU programming across
-              London, Kent and Essex.
-            </p>
-            <div className="skill-cloud">
-              {skills.map((skill) => (
-                <span key={skill}>{skill}</span>
-              ))}
+          <div className="services-left">
+            <div className="work-title-row">
+              <SectionTag>Services</SectionTag>
+              <h2>Specialist vehicle software services.</h2>
+              <p className="about-subtitle">
+                Mobile support for emissions faults, diagnostics, coding and ECU programming across
+                London, Kent and Essex.
+              </p>
+              <div className="skill-cloud">
+                {skills.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
             </div>
           </div>
-          <div className="work-items">
-            {services.map((service) => (
-              <div className="work-item" key={service.title}>
-                <strong className="work-item__label">{service.title}</strong>
-                <p className="work-item__title">{service.body}</p>
-              </div>
-            ))}
+          <div className="services-right">
+            <div className="skill-cloud">
+              {skills.map((skill) => (
+                <span key={`sr-${skill}`}>{skill}</span>
+              ))}
+            </div>
+            <div className="work-items services-items">
+              {services.map((service) => (
+                <div className="work-item" key={service.title}>
+                  <strong className="work-item__label">{service.title}</strong>
+                  <p className="work-item__title">{service.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

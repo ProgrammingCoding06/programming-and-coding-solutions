@@ -920,6 +920,49 @@ p {
   color: rgba(255, 255, 255, 0.68);
 }
 
+/* ── About section — right-aligned desktop layout ── */
+
+.about-section .work-overlay {
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 52%;
+}
+
+/* ── Services section — two-column desktop layout ── */
+
+.services-section .work-overlay {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: clamp(24px, 4vw, 60px);
+}
+
+.services-left {
+  flex: 0 0 44%;
+  display: flex;
+  flex-direction: column;
+}
+
+.services-left .work-title-row {
+  max-width: none;
+}
+
+.services-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.services-items {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .reviews-grid,
 .contact-faq-grid {
   display: grid;
@@ -1494,6 +1537,48 @@ p {
   transform: translateY(0);
 }
 
+@media (max-width: 860px) {
+  .about-section .work-overlay,
+  .services-section .work-overlay {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .about-content {
+    width: 100%;
+  }
+
+  .services-left {
+    flex: none;
+    width: 100%;
+  }
+
+  .services-left .work-title-row {
+    max-width: 680px;
+  }
+
+  .services-right {
+    flex: none;
+    width: 100%;
+  }
+
+  .services-items {
+    grid-template-columns: 1fr;
+    row-gap: 18px;
+  }
+
+  .services-items .work-item + .work-item {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-left: 0;
+    padding-top: 18px;
+  }
+
+  .services-items .work-item {
+    padding-right: 0;
+  }
+}
+
 @media (max-width: 980px) {
   .reviews-grid,
   .contact-faq-grid {
@@ -1529,6 +1614,10 @@ p {
   .work-items {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 20px;
+  }
+
+  .services-items {
+    grid-template-columns: 1fr;
   }
 
   .work-item:nth-child(odd) {
