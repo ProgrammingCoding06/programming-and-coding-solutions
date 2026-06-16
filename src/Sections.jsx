@@ -44,30 +44,38 @@ const brandTicker = [
   'Mazda',
 ]
 
-const projects = [
+const diagnosticSteps = [
   {
+    number: '01',
     label: 'AdBlue / SCR',
-    title: 'Countdowns, dosing faults and limp mode support.',
-    meta: 'Mobile diagnostic route',
-    image: '/assets/Hero-960.webp',
+    title: 'Countdown warnings, dosing faults and limp mode support.',
+    body: 'We check the AdBlue tank, pump, injector, pressure values and SCR system data before recommending the next step.',
+    tags: ['Warning countdowns', 'Dosing faults', 'SCR efficiency'],
+    overlayStep: 'Step 01: Identify warning countdown',
   },
   {
+    number: '02',
     label: 'NOx / EGR',
     title: 'Recurring emissions faults checked before programming.',
-    meta: 'Live data + fault history',
-    image: '/assets/AboutUs-960.webp',
+    body: 'NOx readings, EGR behaviour and live sensor data are reviewed to find the real cause of repeated engine management lights.',
+    tags: ['NOx sensors', 'EGR flow', 'Fault history'],
+    overlayStep: 'Step 02: Check live sensor data',
   },
   {
-    label: 'ECU',
-    title: 'Coding, calibration and remapping for supported vehicles.',
-    meta: 'Licensed software workflow',
-    image: '/assets/Hero-480.webp',
+    number: '03',
+    label: 'ECU Coding',
+    title: 'Module coding, adaptations and configuration support.',
+    body: 'Coding work is carried out carefully after vehicle checks, module scans and software compatibility review.',
+    tags: ['Adaptations', 'Modules', 'Configuration'],
+    overlayStep: 'Step 03: Confirm coding requirements',
   },
   {
-    label: 'Diagnostics',
-    title: 'Dealer-level checks before any permanent solution.',
-    meta: 'London, Kent and Essex',
-    image: '/assets/AboutUs-480.webp',
+    number: '04',
+    label: 'Remapping',
+    title: 'Performance tuning built around drivability and reliability.',
+    body: 'Custom remapping focused on smoother power delivery, torque response and safe everyday performance.',
+    tags: ['Stage 1', 'Torque', 'Throttle response'],
+    overlayStep: 'Step 04: Road test and final report',
   },
 ]
 
@@ -193,42 +201,36 @@ function BrandTicker() {
 function Work() {
   return (
     <section className="section work-section" id="work">
-      <div className="work-grid reveal">
-        <div className="work-copy">
-          <h2>Common jobs handled with a clear diagnostic route.</h2>
-
-          <div className="project-carousel">
-            {projects.map((project) => (
-              <article className="project-card" key={project.title}>
-                <div className="project-image">
-                  <img src={project.image} alt="" loading="lazy" decoding="async" />
+      <div className="work-full reveal">
+        <video
+          src="/assets/work-road.mp4"
+          poster="/assets/Hero-960.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-hidden="true"
+        />
+        <div className="work-overlay">
+          <div className="work-title-row">
+            <SectionTag>Diagnostic Route</SectionTag>
+            <h2>Common jobs handled with a clear diagnostic route.</h2>
+          </div>
+          <div className="work-items">
+            {diagnosticSteps.map((step) => (
+              <div className="work-item" key={step.label}>
+                <span className="work-item__num">{step.number}</span>
+                <strong className="work-item__label">{step.label}</strong>
+                <p className="work-item__title">{step.title}</p>
+                <div className="work-item__tags">
+                  {step.tags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
                 </div>
-                <div className="project-card__body">
-                  <span>{project.label}</span>
-                  <h3>{project.title}</h3>
-                  <div>
-                    <small>{project.meta}</small>
-                    <a href="#contact" aria-label={`Ask about ${project.label}`}>
-                      View
-                      <ArrowUpRight size={15} aria-hidden="true" />
-                    </a>
-                  </div>
-                </div>
-              </article>
+              </div>
             ))}
           </div>
-        </div>
-        <div className="work-media">
-          <video
-            src="/assets/work-road.mp4"
-            poster="/assets/Hero-960.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-hidden="true"
-          />
         </div>
       </div>
     </section>
