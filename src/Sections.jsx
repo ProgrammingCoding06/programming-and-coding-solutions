@@ -1,15 +1,5 @@
 import { useEffect, useState } from 'react'
-import {
-  ArrowUpRight,
-  Car,
-  ChevronDown,
-  Gauge,
-  Mail,
-  MessageCircle,
-  Phone,
-  ShieldCheck,
-  Wrench,
-} from 'lucide-react'
+import { ArrowUpRight, ChevronDown, Mail, MessageCircle, Phone } from 'lucide-react'
 import StarRating from './components/StarRating.jsx'
 import {
   useRevealOnScroll,
@@ -108,22 +98,18 @@ const processSteps = [
 
 const services = [
   {
-    icon: Gauge,
     title: 'AdBlue and SCR',
     body: 'Countdown warnings, dosing faults, pressure issues and SCR efficiency problems.',
   },
   {
-    icon: ShieldCheck,
     title: 'NOx sensor faults',
     body: 'Signal, range and catalyst efficiency checks before any software recommendation.',
   },
   {
-    icon: Wrench,
     title: 'EGR system support',
     body: 'Flow, valve and system performance faults investigated with a diagnostic-first route.',
   },
   {
-    icon: Car,
     title: 'ECU remapping',
     body: 'Driveability-focused calibration, coding and programming for supported brands.',
   },
@@ -250,35 +236,19 @@ function About() {
 function Process() {
   return (
     <section className="section process-section" id="process">
-      <div className="container process-grid">
-        <div className="process-image reveal">
-          <picture>
-            <source
-              type="image/webp"
-              srcSet="/assets/AboutUs-320.webp 320w, /assets/AboutUs-480.webp 480w, /assets/AboutUs-960.webp 960w"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-            />
-            <img
-              src="/assets/AboutUs-960.jpg"
-              alt="Diagnostic equipment in use"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
-        </div>
-
-        <div className="process-content reveal">
-          <SectionTag>Process</SectionTag>
-          <h2>A clear route from fault report to final test.</h2>
-          <div className="process-list">
+      <div className="work-full reveal">
+        <div className="work-overlay">
+          <div className="work-title-row">
+            <SectionTag>Process</SectionTag>
+            <h2>A clear route from fault report to final test.</h2>
+          </div>
+          <div className="process-items">
             {processSteps.map((step, index) => (
-              <article className="process-card" key={step.title}>
-                <span>{index + 1}</span>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.body}</p>
-                </div>
-              </article>
+              <div className="work-item" key={step.title}>
+                <span className="work-item__num">0{index + 1}</span>
+                <strong className="work-item__label">{step.title}</strong>
+                <p className="work-item__title">{step.body}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -290,37 +260,29 @@ function Process() {
 function Services() {
   return (
     <section className="section services-section" id="services">
-      <div className="container">
-        <div className="services-top reveal">
-          <div>
+      <div className="work-full reveal">
+        <div className="work-overlay">
+          <div className="work-title-row">
             <SectionTag>Services</SectionTag>
             <h2>Specialist vehicle software services.</h2>
+            <p className="about-subtitle">
+              Mobile support for emissions faults, diagnostics, coding and ECU programming across
+              London, Kent and Essex.
+            </p>
+            <div className="skill-cloud">
+              {skills.map((skill) => (
+                <span key={skill}>{skill}</span>
+              ))}
+            </div>
           </div>
-          <p>
-            Mobile support for emissions faults, diagnostics, coding and ECU programming across
-            London, Kent and Essex.
-          </p>
-          <div className="skill-cloud">
-            {skills.map((skill) => (
-              <span key={skill}>{skill}</span>
+          <div className="work-items">
+            {services.map((service) => (
+              <div className="work-item" key={service.title}>
+                <strong className="work-item__label">{service.title}</strong>
+                <p className="work-item__title">{service.body}</p>
+              </div>
             ))}
           </div>
-        </div>
-
-        <div className="service-bento reveal">
-          {services.map((service) => {
-            const Icon = service.icon
-
-            return (
-              <article className="service-tile" key={service.title}>
-                <div className="service-icon">
-                  <Icon size={24} aria-hidden="true" />
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.body}</p>
-              </article>
-            )
-          })}
         </div>
       </div>
     </section>
