@@ -1513,6 +1513,7 @@ p {
 .footer-inner h2 {
   max-width: 860px;
   margin: 24px 0 32px;
+  font-size: clamp(1.8rem, 2.8vw, 3.2rem);
 }
 
 .footer-grid {

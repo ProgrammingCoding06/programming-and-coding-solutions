@@ -627,7 +627,7 @@ function Footer() {
     <footer className="site-footer">
       <div className="animated-gradient footer-gradient" aria-hidden="true" />
       <div className="container footer-inner">
-        <SectionTag>PR REMAPS</SectionTag>
+        <SectionTag>Programming and Coding Solutions</SectionTag>
         <h2>Curious about what we can fix together?</h2>
         <PrimaryButton href="#contact">Start a Diagnostic Request</PrimaryButton>
 
