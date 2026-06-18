@@ -977,9 +977,20 @@ p {
 .reviews-grid,
 .contact-faq-grid {
   display: grid;
+  align-items: start;
+}
+
+.reviews-grid {
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 22px;
-  align-items: start;
+}
+
+.contact-faq-grid {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  justify-content: space-between;
+  gap: clamp(40px, 8vw, 120px);
+  width: calc(100% - 80px);
+  max-width: none;
 }
 
 .reviews-copy,
@@ -1154,9 +1165,10 @@ p {
   padding: 0 20px 20px;
 }
 
-.contact-card h2 {
+.contact-card h2,
+.faq-column h2 {
   margin: 18px 0 20px;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(1.8rem, 2.8vw, 3.2rem);
 }
 
 .contact-methods {
