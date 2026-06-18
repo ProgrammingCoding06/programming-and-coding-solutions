@@ -1136,6 +1136,30 @@ p {
   margin-top: 0;
 }
 
+/* Skills tooltips: appear to the right of the arrow, inline */
+.services-left .hint-content {
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: auto;
+  margin-left: 26px;
+  padding: 0;
+}
+
+.services-left .hint-content::before {
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: auto;
+  left: -26px;
+}
+
+.services-left .hint:hover .hint-content::before {
+  width: 26px;
+}
+
+.services-left .hint-content::after {
+  display: none;
+}
+
 .faq-item {
   display: flex;
   align-items: center;
