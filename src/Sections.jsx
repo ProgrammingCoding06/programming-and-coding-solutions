@@ -304,7 +304,7 @@ function Reviews() {
         <div className="work-overlay">
           <div className="work-title-row">
             <SectionTag>Feedback</SectionTag>
-            <h2>Customer confidence built on clear diagnostics.</h2>
+            <h2>Customer confidence built<br />on clear diagnostics.</h2>
             <p className="about-subtitle">
               Practical advice, professional equipment and clear communication from first message to
               final road test.
