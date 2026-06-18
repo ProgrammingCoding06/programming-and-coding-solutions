@@ -973,12 +973,29 @@ p {
   flex-direction: column;
 }
 
-.reviews-grid,
-.contact-faq-grid {
+.reviews-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 22px;
   align-items: start;
+}
+
+.contact-faq-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 40px;
+  width: calc(100% - 80px);
+  max-width: none;
+}
+
+.contact-faq-grid .faq-column {
+  flex: 0 0 auto;
+  width: clamp(260px, 38%, 460px);
+}
+
+.contact-faq-grid .contact-card {
+  flex: 0 0 576px;
 }
 
 .reviews-copy,
@@ -1601,9 +1618,19 @@ p {
 }
 
 @media (max-width: 980px) {
-  .reviews-grid,
-  .contact-faq-grid {
+  .reviews-grid {
     grid-template-columns: 1fr;
+  }
+
+  .contact-faq-grid {
+    flex-direction: column;
+    width: calc(100% - 40px);
+  }
+
+  .contact-faq-grid .faq-column,
+  .contact-faq-grid .contact-card {
+    flex: none;
+    width: 100%;
   }
 
   .footer-grid {
