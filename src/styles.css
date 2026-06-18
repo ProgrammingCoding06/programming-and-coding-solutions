@@ -829,7 +829,9 @@ p {
 }
 
 .reviews-section .work-title-row h2,
-.services-section .work-title-row h2 {
+.services-section .work-title-row h2,
+.process-section .work-title-row h2,
+.about-section .work-title-row h2 {
   font-size: clamp(1.8rem, 2.8vw, 3.2rem);
 }
 
