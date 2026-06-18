@@ -742,8 +742,7 @@ p {
 
 .review-card,
 .policy-card,
-.stat-row article,
-.faq-item {
+.stat-row article {
   border: 1px solid var(--border);
   border-radius: 28px;
   background: var(--card);
@@ -977,20 +976,9 @@ p {
 .reviews-grid,
 .contact-faq-grid {
   display: grid;
-  align-items: start;
-}
-
-.reviews-grid {
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 22px;
-}
-
-.contact-faq-grid {
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  justify-content: space-between;
-  gap: clamp(40px, 8vw, 120px);
-  width: calc(100% - 80px);
-  max-width: none;
+  align-items: start;
 }
 
 .reviews-copy,
@@ -1123,46 +1111,80 @@ p {
 
 .faq-list {
   display: grid;
-  gap: 12px;
+  gap: 18px;
 }
 
 .faq-item {
-  overflow: hidden;
-}
-
-.faq-item summary {
-  display: flex;
-  min-height: 68px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 0 20px;
+  position: relative;
   cursor: pointer;
-  color: var(--white);
+}
+
+.faq-question {
+  font-size: 16px;
   font-weight: 800;
-  list-style: none;
+  color: var(--white);
+  display: block;
+  transition: color 180ms ease;
 }
 
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item[open] {
-  border-color: rgba(220, 50, 63, 0.4);
-}
-
-.faq-item[open] summary {
+.faq-item:hover .faq-question {
   color: var(--red);
 }
 
-.faq-item[open] summary svg {
-  color: var(--red);
-  transform: rotate(180deg);
+.faq-tooltip-content {
+  width: 280px;
+  position: absolute;
+  z-index: 20;
+  bottom: 85px;
+  left: 50%;
+  margin-left: 56px;
+  padding: 35px 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  color: #fff;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 
-.faq-item p {
+.faq-tooltip-content p {
   margin: 0;
-  padding: 0 20px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.55;
+}
+
+.faq-tooltip-content::before {
+  content: '';
+  position: absolute;
+  bottom: 29px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.4s;
+}
+
+.faq-tooltip-content::after {
+  content: '';
+  position: absolute;
+  bottom: 29px;
+  left: 0;
+  width: 80px;
+  height: 1px;
+  background: #fff;
+  transform-origin: 0 50%;
+  transform: rotate(-225deg);
+  transition: opacity 0.5s ease;
+}
+
+.faq-item:hover .faq-tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.faq-item:hover .faq-tooltip-content::before {
+  width: 180px;
 }
 
 .contact-card h2,

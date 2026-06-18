@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowUpRight, ChevronDown, Mail, MessageCircle, Phone } from 'lucide-react'
+import { ArrowUpRight, Mail, MessageCircle, Phone } from 'lucide-react'
 import StarRating from './components/StarRating.jsx'
 import {
   useRevealOnScroll,
@@ -377,13 +377,12 @@ function ContactAndFaq() {
           <h2>Before you book.</h2>
           <div className="faq-list">
             {faqs.map(([question, answer]) => (
-              <details className="faq-item" key={question}>
-                <summary>
-                  {question}
-                  <ChevronDown size={18} aria-hidden="true" />
-                </summary>
-                <p>{answer}</p>
-              </details>
+              <div className="faq-item" key={question}>
+                <span className="faq-question">{question}</span>
+                <div className="faq-tooltip-content">
+                  <p>{answer}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
