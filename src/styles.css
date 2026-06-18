@@ -571,7 +571,7 @@ h3 {
   letter-spacing: 0;
   line-height: 0.96;
   overflow-wrap: break-word;
-  hyphens: auto;
+  hyphens: none;
 }
 
 h1 {
