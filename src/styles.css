@@ -1129,6 +1129,7 @@ p {
 .faq-list {
   display: grid;
   gap: 18px;
+  margin-top: clamp(40px, 6vw, 80px);
 }
 
 .faq-item {
