@@ -985,7 +985,7 @@ p {
   justify-content: space-between;
   align-items: start;
   gap: 40px;
-  width: calc(100% - 200px);
+  width: calc(100% - 340px);
   max-width: none;
 }
 
