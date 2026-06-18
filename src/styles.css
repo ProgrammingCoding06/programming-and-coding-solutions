@@ -1133,6 +1133,7 @@ p {
 
 .faq-item {
   position: relative;
+  width: fit-content;
   cursor: pointer;
 }
 
@@ -1149,17 +1150,16 @@ p {
 }
 
 .faq-tooltip-content {
-  width: 280px;
+  width: 260px;
   position: absolute;
   z-index: 20;
-  bottom: 85px;
-  left: 50%;
-  margin-left: 56px;
-  padding: 35px 0;
+  top: 50%;
+  left: calc(100% + 20px);
+  transform: translateY(-50%);
+  padding: 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  color: #fff;
   transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 
@@ -1174,25 +1174,17 @@ p {
 .faq-tooltip-content::before {
   content: '';
   position: absolute;
-  bottom: 29px;
-  left: 0;
+  top: 50%;
+  left: -20px;
   width: 0;
   height: 1px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%);
   transition: width 0.4s;
 }
 
 .faq-tooltip-content::after {
-  content: '';
-  position: absolute;
-  bottom: 29px;
-  left: 0;
-  width: 80px;
-  height: 1px;
-  background: #fff;
-  transform-origin: 0 50%;
-  transform: rotate(-225deg);
-  transition: opacity 0.5s ease;
+  display: none;
 }
 
 .faq-item:hover .faq-tooltip-content {
@@ -1201,7 +1193,7 @@ p {
 }
 
 .faq-item:hover .faq-tooltip-content::before {
-  width: 180px;
+  width: 20px;
 }
 
 .contact-card h2,
