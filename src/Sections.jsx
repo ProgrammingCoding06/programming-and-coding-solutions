@@ -379,8 +379,12 @@ function ContactAndFaq() {
             {faqs.map(([question, answer]) => (
               <div className="faq-item" key={question}>
                 <span className="faq-question">{question}</span>
-                <div className="faq-tooltip-content">
-                  <p>{answer}</p>
+                <div className="hint">
+                  <span className="hint-radius" />
+                  <span className="hint-dot">Tip</span>
+                  <div className="hint-content">
+                    <p>{answer}</p>
+                  </div>
                 </div>
               </div>
             ))}

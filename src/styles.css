@@ -1132,38 +1132,84 @@ p {
 }
 
 .faq-item {
-  position: relative;
-  width: fit-content;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .faq-question {
   font-size: 16px;
   font-weight: 800;
   color: var(--white);
-  display: block;
-  transition: color 180ms ease;
 }
 
-.faq-item:hover .faq-question {
-  color: var(--red);
+.hint {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: pointer;
 }
 
-.faq-tooltip-content {
+.hint-dot {
+  z-index: 3;
+  border: 1px solid #ffe4e4;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.hint:hover .hint-dot {
+  transform: scale(1.05);
+}
+
+.hint-radius {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  margin: -36px 0 0 -36px;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  transition: transform 0.7s ease, opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.hint:hover .hint-radius {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.hint-content {
   width: 260px;
   position: absolute;
-  z-index: 20;
-  top: 50%;
-  left: 100%;
-  transform: translateY(-50%);
-  padding: 10px 0 10px 44px;
+  z-index: 5;
+  bottom: 85px;
+  left: 50%;
+  margin-left: 56px;
+  padding: 35px 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  color: #fff;
   transition: opacity 0.7s ease, visibility 0.7s ease;
 }
 
-.faq-tooltip-content p {
+.hint-content p {
   margin: 0;
   font-size: 14px;
   font-weight: 500;
@@ -1171,40 +1217,37 @@ p {
   line-height: 1.55;
 }
 
-/* horizontal line growing from text end toward tooltip */
-.faq-tooltip-content::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #fff;
-  transform: translateY(-50%);
-  transition: width 0.4s;
-}
-
-/* diagonal branch — always present, same origin as ::before */
-.faq-tooltip-content::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 26px;
-  height: 1px;
-  background: #fff;
-  transform-origin: 0 50%;
-  transform: translateY(-50%) rotate(-45deg);
-  opacity: 1;
-}
-
-.faq-item:hover .faq-tooltip-content {
+.hint:hover .hint-content {
   opacity: 1;
   visibility: visible;
 }
 
-.faq-item:hover .faq-tooltip-content::before {
-  width: 44px;
+.hint-content::before {
+  content: '';
+  position: absolute;
+  bottom: 29px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.4s;
+}
+
+.hint:hover .hint-content::before {
+  width: 180px;
+}
+
+.hint-content::after {
+  content: '';
+  position: absolute;
+  bottom: 29px;
+  left: 0;
+  width: 80px;
+  height: 1px;
+  background: #fff;
+  transform-origin: 0 50%;
+  transform: rotate(-225deg);
+  opacity: 1;
 }
 
 .contact-card h2,
