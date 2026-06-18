@@ -824,6 +824,14 @@ p {
   color: var(--white);
 }
 
+.reviews-section .work-title-row {
+  max-width: none;
+}
+
+.reviews-section .work-title-row h2 {
+  font-size: clamp(1.8rem, 2.8vw, 3.2rem);
+}
+
 .work-items {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
