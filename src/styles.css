@@ -1132,6 +1132,10 @@ p {
   margin-top: clamp(40px, 6vw, 80px);
 }
 
+.services-left .faq-list {
+  margin-top: 0;
+}
+
 .faq-item {
   display: flex;
   align-items: center;

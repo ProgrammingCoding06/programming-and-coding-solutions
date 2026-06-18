@@ -69,15 +69,15 @@ const diagnosticSteps = [
 ]
 
 const skills = [
-  'AdBlue',
-  'SCR',
-  'NOx',
-  'EGR',
-  'ECU coding',
-  'Remapping',
-  'Diagnostics',
-  'Live data',
-  'Mobile support',
+  { label: 'NOx', tooltip: 'NOx sensor signal, range and catalyst efficiency checked before any software recommendation.' },
+  { label: 'SCR', tooltip: 'SCR system data reviewed for dosing, pressure and efficiency faults.' },
+  { label: 'EGR', tooltip: 'EGR flow, valve and system faults investigated with a diagnostic-first route.' },
+  { label: 'AdBlue', tooltip: 'Countdown warnings, dosing faults and pressure issues diagnosed and resolved.' },
+  { label: 'Live data', tooltip: 'Real-time sensor monitoring and parameter analysis during diagnostics.' },
+  { label: 'Remapping', tooltip: 'Driveability-focused ECU calibration for smoother power and torque response.' },
+  { label: 'ECU coding', tooltip: 'Module coding, adaptations and configuration completed after full vehicle checks.' },
+  { label: 'Diagnostics', tooltip: 'Dealer-level diagnostic scanning across all major manufacturers.' },
+  { label: 'Mobile support', tooltip: 'We come to you — available across London, Kent and Essex.' },
 ]
 
 
@@ -266,9 +266,22 @@ function Services() {
         <div className="work-overlay">
           <div className="services-top">
             <div className="services-left">
-              <div className="skill-cloud">
-                {skills.map((skill) => (
-                  <span key={skill}>{skill}</span>
+              <div className="faq-list">
+                {skills.map(({ label, tooltip }) => (
+                  <div className="faq-item" key={label}>
+                    <span className="faq-question">{label}</span>
+                    <div className="hint">
+                      <span className="hint-radius" />
+                      <span className="hint-dot">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                        </svg>
+                      </span>
+                      <div className="hint-content">
+                        <p>{tooltip}</p>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
