@@ -300,44 +300,30 @@ function Services() {
 function Reviews() {
   return (
     <section className="section reviews-section" id="reviews">
-      <div className="container reviews-grid">
-        <div className="reviews-copy reveal">
-          <SectionTag>Feedback</SectionTag>
-          <h2>Customer confidence built on clear diagnostics.</h2>
-          <p>
-            Practical advice, professional equipment and clear communication from first message to
-            final road test.
-          </p>
-          <div className="stat-row">
-            <article>
-              <strong>98%</strong>
-              <span>Customer satisfaction</span>
-            </article>
-            <article>
-              <strong>2h</strong>
-              <span>Typical response window</span>
-            </article>
+      <div className="work-full reveal">
+        <div className="work-overlay">
+          <div className="work-title-row">
+            <SectionTag>Feedback</SectionTag>
+            <h2>Customer confidence built on clear diagnostics.</h2>
+            <p className="about-subtitle">
+              Practical advice, professional equipment and clear communication from first message to
+              final road test.
+            </p>
           </div>
-        </div>
-
-        <div className="review-list reveal">
-          {reviews.map((review) => (
-            <article className="review-card" key={review.name}>
-              <div className="review-head">
-                <span className="review-avatar" aria-hidden="true">
-                  <MessageCircle size={20} aria-hidden="true" />
-                </span>
-                <strong>{review.name}</strong>
+          <div className="review-items">
+            {reviews.map((review) => (
+              <div className="work-item" key={review.name}>
+                <StarRating
+                  rating={review.rating}
+                  starSize={18}
+                  textSize={15}
+                  filledColor={accentRed}
+                />
+                <strong className="work-item__label">{review.name}</strong>
+                <p className="work-item__title">"{review.quote}"</p>
               </div>
-              <StarRating
-                rating={review.rating}
-                starSize={18}
-                textSize={15}
-                filledColor={accentRed}
-              />
-              <p>{review.quote}</p>
-            </article>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -754,14 +754,23 @@ p {
 .work-section,
 .about-section,
 .process-section,
-.services-section {
+.services-section,
+.reviews-section {
   padding: 0;
 }
 
 .about-section .work-overlay,
 .process-section .work-overlay,
-.services-section .work-overlay {
+.services-section .work-overlay,
+.reviews-section .work-overlay {
   background: none;
+}
+
+.review-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  padding-top: 28px;
 }
 
 .process-items {
@@ -1023,10 +1032,6 @@ p {
   font-weight: 800;
 }
 
-
-.reviews-section {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 24%);
-}
 
 .review-list {
   display: grid;
@@ -1563,19 +1568,22 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .process-items {
+  .process-items,
+  .review-items {
     grid-template-columns: 1fr;
     row-gap: 18px;
   }
 
-  .process-items .work-item + .work-item {
+  .process-items .work-item + .work-item,
+  .review-items .work-item + .work-item {
     border-left: none;
     border-top: 1px solid rgba(255, 255, 255, 0.18);
     padding-left: 0;
     padding-top: 18px;
   }
 
-  .process-items .work-item {
+  .process-items .work-item,
+  .review-items .work-item {
     padding-right: 0;
   }
 }
