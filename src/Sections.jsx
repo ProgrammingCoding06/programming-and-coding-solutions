@@ -140,12 +140,12 @@ const faqs = [
     'No. Fault codes help, but we can diagnose warning lights and stored faults on arrival.',
   ],
   [
-    'Is everything handled through software?',
-    'No. We check the root cause first and only recommend coding or programming when it is suitable.',
-  ],
-  [
     'Which vehicles do you support?',
     'Common supported brands include BMW, MINI, VAG, Mercedes-Benz, Ford, Peugeot, Citroen, Renault and Land Rover.',
+  ],
+  [
+    'Is everything handled through software?',
+    'No. We check the root cause first and only recommend coding or programming when it is suitable.',
   ],
 ]
 
@@ -381,7 +381,11 @@ function ContactAndFaq() {
                 <span className="faq-question">{question}</span>
                 <div className="hint">
                   <span className="hint-radius" />
-                  <span className="hint-dot">Tip</span>
+                  <span className="hint-dot">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                  </span>
                   <div className="hint-content">
                     <p>{answer}</p>
                   </div>
