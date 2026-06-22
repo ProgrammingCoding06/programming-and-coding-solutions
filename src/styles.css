@@ -1138,7 +1138,13 @@ p {
   gap: 18px;
 }
 
-/* Chevron > layout: sharp diagonal lines meeting at the tip (item 5) */
+/* Fixed-width items so dot position is constant regardless of text length */
+.services-left .faq-item {
+  width: 280px;
+  justify-content: space-between;
+}
+
+/* Chevron > layout: equal steps — top mirrors bottom perfectly */
 .services-left .faq-item:nth-child(1) { margin-left: 0px; }
 .services-left .faq-item:nth-child(2) { margin-left: 40px; }
 .services-left .faq-item:nth-child(3) { margin-left: 80px; }
