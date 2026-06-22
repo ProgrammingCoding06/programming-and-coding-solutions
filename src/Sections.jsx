@@ -370,8 +370,8 @@ function LocationGlobe() {
   return (
     <GlobeComp
       ref={globeEl}
-      width={360}
-      height={360}
+      width={500}
+      height={500}
       backgroundColor="rgba(0,0,0,0)"
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       pointsData={pins}
@@ -382,7 +382,7 @@ function LocationGlobe() {
       atmosphereAltitude={0.15}
       onGlobeReady={() => {
         if (!globeEl.current) return
-        globeEl.current.pointOfView({ lat: 54, lng: -2, altitude: 1.8 }, 0)
+        globeEl.current.pointOfView({ lat: 52, lng: -1, altitude: 1.8 }, 0)
         globeEl.current.controls().autoRotate = false
         globeEl.current.controls().enableZoom = false
       }}
@@ -469,7 +469,9 @@ function ContactAndFaq() {
         <div className="location-column reveal">
           <SectionTag>Location</SectionTag>
           <h2>Where to find us.</h2>
-          <LocationGlobe />
+          <div className="globe-wrap">
+            <LocationGlobe />
+          </div>
         </div>
 
         <div className="contact-card reveal">

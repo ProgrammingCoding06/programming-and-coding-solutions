@@ -992,11 +992,15 @@ p {
 
 .contact-faq-grid .faq-column {
   flex: 0 0 auto;
-  width: clamp(200px, 22%, 260px);
+  width: clamp(260px, 38%, 460px);
+  position: relative;
+  z-index: 1;
 }
 
 .contact-faq-grid .contact-card {
   flex: 0 0 420px;
+  position: relative;
+  z-index: 1;
 }
 
 .reviews-copy,
@@ -1131,18 +1135,23 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  flex: 0 0 auto;
-  width: 360px;
+  flex: 0 0 200px;
+  overflow: visible;
+  z-index: 0;
 }
 
 .location-column h2 {
   white-space: nowrap;
 }
 
+.globe-wrap {
+  margin-top: 60px;
+  margin-left: -150px;
+}
+
 .globe-loading {
-  width: 360px;
-  height: 360px;
-  margin-top: 24px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   background: radial-gradient(circle at 38% 38%, #1a3a5c, #0a1a2e);
 }

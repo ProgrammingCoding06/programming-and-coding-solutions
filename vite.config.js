@@ -52,6 +52,7 @@ export default defineConfig({
                   'policy-list',
                   'location-column',
                   'globe-loading',
+                  'globe-wrap',
                 ],
                 deep: [/^data-/, /aria-/, /^framer-rating/],
                 greedy: [/carousel/, /cookie/],
