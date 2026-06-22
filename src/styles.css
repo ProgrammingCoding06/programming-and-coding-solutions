@@ -1747,8 +1747,9 @@ p {
     transition: transform 0.3s ease;
   }
 
-  /* Mobile description: hidden by default, slides in on open */
+  /* Mobile description: slide in on open */
   .skill-mobile-desc {
+    display: block;
     width: 100%;
     max-height: 0;
     overflow: hidden;
