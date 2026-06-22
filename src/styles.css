@@ -1219,7 +1219,7 @@ p {
 }
 
 .hint-content {
-  width: 260px;
+  width: max-content;
   position: absolute;
   z-index: 5;
   bottom: 50px;
@@ -1252,7 +1252,7 @@ p {
   content: '';
   position: absolute;
   bottom: 29px;
-  left: 60px;
+  left: 70px;
   width: 0;
   height: 1px;
   background: #fff;
@@ -1260,7 +1260,7 @@ p {
 }
 
 .hint:hover .hint-content::before {
-  width: 120px;
+  width: calc(100% - 70px);
 }
 
 .hint-content::after {
