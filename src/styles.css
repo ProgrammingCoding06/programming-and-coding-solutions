@@ -1227,17 +1227,17 @@ p {
   box-shadow: 0 0 10px #ffffff;
   border-radius: 100px;
   z-index: 2;
-  right: 10%;
-  top: 10%;
+  top: calc(10% - 2.5px);
+  right: calc(10% - 2.5px);
   animation: skillDotMove 6s linear infinite;
 }
 
 @keyframes skillDotMove {
   0%,
-  100% { top: 10%; right: 10%; }
-  25%  { top: 10%; right: calc(100% - 35px); }
-  50%  { top: calc(100% - 30px); right: calc(100% - 35px); }
-  75%  { top: calc(100% - 30px); right: 10%; }
+  100% { top: calc(10% - 2.5px); right: calc(10% - 2.5px); }
+  25%  { top: calc(10% - 2.5px); right: calc(90% - 2.5px); }
+  50%  { top: calc(90% - 2.5px); right: calc(90% - 2.5px); }
+  75%  { top: calc(90% - 2.5px); right: calc(10% - 2.5px); }
 }
 
 .skill-card__inner {
