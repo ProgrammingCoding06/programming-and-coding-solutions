@@ -469,6 +469,7 @@ function ContactAndFaq() {
         <div className="location-column reveal">
           <SectionTag>Location</SectionTag>
           <h2>Where to find us.</h2>
+          <p className="location-address">RM19 1TL</p>
           <div className="globe-wrap">
             <LocationGlobe />
           </div>
@@ -476,7 +477,7 @@ function ContactAndFaq() {
 
         <div className="contact-card reveal">
           <SectionTag>Book</SectionTag>
-          <h2>Send your vehicle details.</h2>
+          <h2>Contact Us.</h2>
           <div className="contact-methods">
             <a href={phoneHref}>
               <Phone size={17} aria-hidden="true" />
