@@ -358,6 +358,7 @@ function Reviews() {
 function ContactAndFaq() {
   const [status, setStatus] = useState({ message: '', type: '' })
   const [submitting, setSubmitting] = useState(false)
+  const [openFaq, setOpenFaq] = useState(null)
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -401,22 +402,32 @@ function ContactAndFaq() {
           <SectionTag>FAQ</SectionTag>
           <h2>Before you book.</h2>
           <div className="faq-list">
-            {faqs.map(([question, answer]) => (
-              <div className="faq-item" key={question}>
-                <span className="faq-question">{question}</span>
-                <div className="hint">
-                  <span className="hint-radius" />
-                  <span className="hint-dot">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-                    </svg>
-                  </span>
-                  <div className="hint-content">
-                    <p>{answer}</p>
-                  </div>
+            {faqs.map(([question, answer]) => {
+              const isOpen = openFaq === question
+              return (
+                <div className={`faq-item${isOpen ? ' skill-open' : ''}`} key={question}>
+                  <span className="faq-question">{question}</span>
+                  <button
+                    className="hint"
+                    onClick={() => setOpenFaq(isOpen ? null : question)}
+                    aria-expanded={isOpen}
+                    aria-label={`${question} details`}
+                    type="button"
+                  >
+                    <span className="hint-radius" />
+                    <span className="hint-dot">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                      </svg>
+                    </span>
+                    <div className="hint-content">
+                      <p>{answer}</p>
+                    </div>
+                  </button>
+                  <p className="skill-mobile-desc">{answer}</p>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
