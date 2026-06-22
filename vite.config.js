@@ -51,7 +51,7 @@ export default defineConfig({
                   'skill-mobile-desc',
                   'policy-list',
                   'location-column',
-                  'uk-map-wrap',
+                  'globe-loading',
                 ],
                 deep: [/^data-/, /aria-/, /^framer-rating/],
                 greedy: [/carousel/, /cookie/],

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { ArrowUpRight, Mail, MessageCircle, Phone } from 'lucide-react'
 import StarRating from './components/StarRating.jsx'
 import {
@@ -355,6 +355,41 @@ function Reviews() {
   )
 }
 
+function LocationGlobe() {
+  const globeEl = useRef(null)
+  const [GlobeComp, setGlobeComp] = useState(null)
+
+  useEffect(() => {
+    import('react-globe.gl').then(m => setGlobeComp(() => m.default))
+  }, [])
+
+  const pins = useMemo(() => [{ lat: 51.4826, lng: 0.2342, color: '#e6313a' }], [])
+
+  if (!GlobeComp) return <div className="globe-loading" aria-hidden="true" />
+
+  return (
+    <GlobeComp
+      ref={globeEl}
+      width={240}
+      height={240}
+      backgroundColor="rgba(0,0,0,0)"
+      globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+      pointsData={pins}
+      pointAltitude={0.07}
+      pointColor="color"
+      pointRadius={0.6}
+      atmosphereColor="rgba(120,180,255,0.5)"
+      atmosphereAltitude={0.15}
+      onGlobeReady={() => {
+        if (!globeEl.current) return
+        globeEl.current.pointOfView({ lat: 54, lng: -2, altitude: 1.8 }, 0)
+        globeEl.current.controls().autoRotate = false
+        globeEl.current.controls().enableZoom = false
+      }}
+    />
+  )
+}
+
 function ContactAndFaq() {
   const [status, setStatus] = useState({ message: '', type: '' })
   const [submitting, setSubmitting] = useState(false)
@@ -434,27 +469,7 @@ function ContactAndFaq() {
         <div className="location-column reveal">
           <SectionTag>Location</SectionTag>
           <h2>Where to find us.</h2>
-          <svg width="0" height="0" style={{ position: 'absolute', overflow: 'hidden', pointerEvents: 'none' }}>
-            <defs>
-              <clipPath id="uk-clip" clipPathUnits="userSpaceOnUse">
-                <path d="M 182 3 L 214 10 L 234 33 L 221 56 L 227 67 L 214 79 L 208 92 L 202 110 L 208 128 L 214 144 L 208 159 L 214 174 L 208 190 L 221 200 L 227 218 L 234 238 L 221 256 L 240 272 L 227 287 L 221 302 L 227 313 L 221 328 L 214 338 L 202 343 L 176 349 L 150 346 L 131 349 L 112 354 L 93 359 L 74 364 L 54 374 L 29 390 L 10 405 L 3 395 L 16 379 L 29 364 L 35 349 L 29 338 L 35 328 L 48 318 L 42 308 L 22 297 L 10 292 L 3 277 L 0 261 L 10 251 L 16 236 L 13 220 L 19 205 L 3 190 L 22 185 L 35 174 L 48 164 L 67 159 L 61 144 L 48 128 L 42 113 L 48 97 L 61 87 L 74 92 L 61 108 L 42 118 L 54 133 L 64 149 L 42 164 L 67 169 L 80 159 L 93 149 L 86 133 L 74 118 L 54 103 L 42 87 L 35 72 L 29 56 L 16 41 L 10 26 L 29 15 L 54 5 L 112 0 L 160 0 Z" />
-              </clipPath>
-            </defs>
-          </svg>
-          <div className="uk-map-wrap">
-            <iframe
-              title="Our location — RM19 1TL, Purfleet, Essex"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=0.2100%2C51.4700%2C0.2600%2C51.5000&layer=mapnik&marker=51.4826%2C0.2342"
-              allowFullScreen
-              loading="lazy"
-            />
-            <img
-              src="https://static.vecteezy.com/system/resources/thumbnails/012/986/997/small_2x/hand-drawn-of-uk-3d-map-png.png"
-              alt=""
-              aria-hidden="true"
-              className="uk-map-overlay"
-            />
-          </div>
+          <LocationGlobe />
         </div>
 
         <div className="contact-card reveal">
