@@ -672,7 +672,7 @@ function Footer() {
             <a className="footer-brand" href="/" aria-label="Programming and Coding Solutions home">
               <picture>
                 <source type="image/webp" srcSet="/assets/logo-120.webp" />
-                <img src="/assets/logo-120.png" alt="" width="52" height="52" />
+                <img src="/assets/logo-120.png" alt="" width="80" height="80" />
               </picture>
               <span>Programming and Coding Solutions</span>
             </a>
