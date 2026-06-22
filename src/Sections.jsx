@@ -669,12 +669,12 @@ function Footer() {
 
         <div className="footer-grid">
           <div className="footer-col">
-            <a className="footer-brand" href="/" aria-label="PR REMAPS home">
+            <a className="footer-brand" href="/" aria-label="Programming and Coding Solutions home">
               <picture>
                 <source type="image/webp" srcSet="/assets/logo-120.webp" />
-                <img src="/assets/logo-120.png" alt="" width="38" height="38" />
+                <img src="/assets/logo-120.png" alt="" width="52" height="52" />
               </picture>
-              <span>PR REMAPS</span>
+              <span>Programming and Coding Solutions</span>
             </a>
             <p>
               Mobile AdBlue, SCR, NOx, EGR, ECU remapping and dealer-level diagnostics across
