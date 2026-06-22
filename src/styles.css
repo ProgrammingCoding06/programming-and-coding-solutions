@@ -1667,6 +1667,16 @@ p {
   text-decoration: underline;
 }
 
+.policy-list {
+  margin: 10px 0 12px 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
 .policy-card--wide {
   grid-column: span 2;
 }

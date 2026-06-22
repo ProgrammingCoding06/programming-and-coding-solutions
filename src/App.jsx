@@ -222,22 +222,51 @@ export function App() {
 export function PrivacyPage() {
   const policySections = useMemo(
     () => [
-      [
-        'What data we collect',
-        'We collect the information you submit through the quote form, including your name, email address, phone number, vehicle make and model, and service requirements.',
-      ],
-      [
-        'Why we collect it',
-        'We use this data to respond to your request, understand your vehicle needs and provide accurate service guidance.',
-      ],
-      [
-        'How we use your data',
-        'Your data is used only to contact you about your request and provide our services. We do not sell your personal information.',
-      ],
-      [
-        'Cookies',
-        'We use essential cookies to ensure the site works correctly. Optional cookies are only enabled with your consent.',
-      ],
+      {
+        title: 'Who we are',
+        body: 'Programming and Coding Solutions (also trading as PR REMAPS) is the data controller for personal information collected through this website. You can contact us at progandcod@gmail.com or by phone on +44 7783 597186.',
+      },
+      {
+        title: 'What data we collect',
+        body: 'When you submit the quote request form we collect your name, email address, phone number, vehicle make and model, and a description of your service requirements.',
+      },
+      {
+        title: 'Legal basis for processing',
+        body: 'We process your data on the basis of legitimate interest (Article 6(1)(f) UK GDPR) — specifically, to communicate with prospective customers who have voluntarily contacted us. We do not use your data for marketing without your separate consent.',
+      },
+      {
+        title: 'How we use your data',
+        body: 'Your data is used only to respond to your enquiry and provide service guidance. We do not sell, rent or share your personal information with any third party for their own purposes.',
+      },
+      {
+        title: 'Third-party processors',
+        body: 'Form submissions are processed by Web3Forms (web3forms.com), a third-party service that delivers your enquiry to our inbox. Web3Forms may process your data on servers outside the UK. No other third parties receive your personal data.',
+      },
+      {
+        title: 'How long we keep your data',
+        body: 'Enquiry data is retained for a maximum of 12 months, after which it is deleted. If your enquiry results in an ongoing service relationship, records may be kept for up to 6 years to comply with HMRC requirements.',
+      },
+      {
+        title: 'Cookies',
+        body: 'This website does not use cookies or any other tracking technologies. No personal data is stored in your browser.',
+      },
+      {
+        title: 'Your rights',
+        body: 'Under UK GDPR you have the right to:',
+        list: [
+          'Access — request a copy of the data we hold about you',
+          'Rectification — ask us to correct inaccurate data',
+          'Erasure — ask us to delete your data',
+          'Restriction — ask us to limit how we process your data',
+          'Portability — receive your data in a portable format',
+          'Object — object to processing based on legitimate interests',
+        ],
+        bodyAfter: 'To exercise any of these rights, email us at progandcod@gmail.com. We will respond within one month.',
+      },
+      {
+        title: 'Complaints',
+        body: "If you have concerns about how we handle your data you have the right to complain to the Information Commissioner's Office (ICO) at ico.org.uk or by calling 0303 123 1113.",
+      },
     ],
     []
   )
@@ -251,15 +280,23 @@ export function PrivacyPage() {
           <div className="container hero-inner">
             <SectionTag>Privacy</SectionTag>
             <h1>Privacy Policy</h1>
-            <p>How Programming &amp; Coding Solutions collects, uses and protects your data.</p>
+            <p>How Programming &amp; Coding Solutions collects, uses and protects your data. Last updated: June 2026.</p>
           </div>
         </section>
         <section className="section">
           <div className="container policy-grid">
-            {policySections.map(([title, body]) => (
+            {policySections.map(({ title, body, list, bodyAfter }) => (
               <article className="policy-card" key={title}>
                 <h2>{title}</h2>
-                <p>{body}</p>
+                {body && <p>{body}</p>}
+                {list && (
+                  <ul className="policy-list">
+                    {list.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+                {bodyAfter && <p>{bodyAfter}</p>}
               </article>
             ))}
             <article className="policy-card policy-card--wide">

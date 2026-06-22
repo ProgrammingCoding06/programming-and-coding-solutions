@@ -49,6 +49,7 @@ export default defineConfig({
                   'hint-content',
                   'skill-open',
                   'skill-mobile-desc',
+                  'policy-list',
                 ],
                 deep: [/^data-/, /aria-/, /^framer-rating/],
                 greedy: [/carousel/, /cookie/],
