@@ -1228,7 +1228,7 @@ p {
   z-index: 5;
   bottom: 20px;
   left: 50%;
-  margin-left: -20px;
+  margin-left: 20px;
   padding: 35px 0;
   opacity: 0;
   visibility: hidden;
