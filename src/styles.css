@@ -1571,6 +1571,10 @@ p {
   letter-spacing: 0.08em;
 }
 
+.footer-col:first-child {
+  margin-top: -40px;
+}
+
 .footer-brand {
   display: inline-flex;
   align-items: center;
