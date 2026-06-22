@@ -1692,6 +1692,40 @@ p {
     flex: none;
     width: 100%;
   }
+
+  /* Reset chevron layout and tooltip for touch screens */
+  .services-left {
+    padding-top: 0;
+  }
+
+  .services-left .faq-list {
+    gap: 20px;
+  }
+
+  .services-left .faq-item {
+    width: auto;
+    justify-content: flex-start;
+  }
+
+  .services-left .faq-item:nth-child(1),
+  .services-left .faq-item:nth-child(2),
+  .services-left .faq-item:nth-child(3),
+  .services-left .faq-item:nth-child(4),
+  .services-left .faq-item:nth-child(5),
+  .services-left .faq-item:nth-child(6),
+  .services-left .faq-item:nth-child(7),
+  .services-left .faq-item:nth-child(8),
+  .services-left .faq-item:nth-child(9) {
+    margin-left: 0;
+  }
+
+  .services-left .faq-question {
+    padding-left: 0;
+  }
+
+  .services-left .hint-content {
+    display: none;
+  }
 }
 
 @media (max-width: 980px) {
