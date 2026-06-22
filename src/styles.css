@@ -1138,6 +1138,10 @@ p {
   gap: 18px;
 }
 
+.services-left .faq-question {
+  padding-left: 24px;
+}
+
 /* Fixed-width items so dot position is constant regardless of text length */
 .services-left .faq-item {
   width: 190px;
@@ -1222,9 +1226,9 @@ p {
   width: max-content;
   position: absolute;
   z-index: 5;
-  bottom: 50px;
+  bottom: 20px;
   left: 50%;
-  margin-left: 10px;
+  margin-left: -20px;
   padding: 35px 0;
   opacity: 0;
   visibility: hidden;
