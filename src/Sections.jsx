@@ -259,6 +259,23 @@ function Process() {
   )
 }
 
+function SkillCard({ label, tooltip }) {
+  return (
+    <div className="skill-card">
+      <div className="skill-card__dot" />
+      <div className="skill-card__inner">
+        <div className="skill-card__ray" />
+        <span className="skill-card__label">{label}</span>
+        <p className="skill-card__desc">{tooltip}</p>
+        <div className="skill-card__line skill-card__line--top" />
+        <div className="skill-card__line skill-card__line--left" />
+        <div className="skill-card__line skill-card__line--bottom" />
+        <div className="skill-card__line skill-card__line--right" />
+      </div>
+    </div>
+  )
+}
+
 function Services() {
   const [openSkill, setOpenSkill] = useState(null)
 
@@ -291,7 +308,7 @@ function Services() {
                           <p>{tooltip}</p>
                         </div>
                       </button>
-                      <p className="skill-mobile-desc">{tooltip}</p>
+                      {isOpen && <SkillCard label={label} tooltip={tooltip} />}
                     </div>
                   )
                 })}
