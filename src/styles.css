@@ -1240,6 +1240,7 @@ p {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.55;
+  white-space: nowrap;
 }
 
 .hint:hover .hint-content {
