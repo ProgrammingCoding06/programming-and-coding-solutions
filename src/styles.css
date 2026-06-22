@@ -1135,17 +1135,18 @@ p {
 
 .services-left .faq-list {
   margin-top: 0;
+  gap: 18px;
 }
 
-/* Chevron > layout: straight diagonal lines meeting at the tip (item 5) */
+/* Chevron > layout: sharp diagonal lines meeting at the tip (item 5) */
 .services-left .faq-item:nth-child(1) { margin-left: 0px; }
-.services-left .faq-item:nth-child(2) { margin-left: 28px; }
-.services-left .faq-item:nth-child(3) { margin-left: 56px; }
-.services-left .faq-item:nth-child(4) { margin-left: 84px; }
-.services-left .faq-item:nth-child(5) { margin-left: 112px; }
-.services-left .faq-item:nth-child(6) { margin-left: 84px; }
-.services-left .faq-item:nth-child(7) { margin-left: 56px; }
-.services-left .faq-item:nth-child(8) { margin-left: 28px; }
+.services-left .faq-item:nth-child(2) { margin-left: 40px; }
+.services-left .faq-item:nth-child(3) { margin-left: 80px; }
+.services-left .faq-item:nth-child(4) { margin-left: 120px; }
+.services-left .faq-item:nth-child(5) { margin-left: 160px; }
+.services-left .faq-item:nth-child(6) { margin-left: 120px; }
+.services-left .faq-item:nth-child(7) { margin-left: 80px; }
+.services-left .faq-item:nth-child(8) { margin-left: 40px; }
 .services-left .faq-item:nth-child(9) { margin-left: 0px; }
 
 .faq-item {
