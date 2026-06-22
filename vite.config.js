@@ -47,6 +47,8 @@ export default defineConfig({
                   'hint-dot',
                   'hint-radius',
                   'hint-content',
+                  'skill-open',
+                  'skill-mobile-desc',
                 ],
                 deep: [/^data-/, /aria-/, /^framer-rating/],
                 greedy: [/carousel/, /cookie/],

@@ -260,6 +260,8 @@ function Process() {
 }
 
 function Services() {
+  const [openSkill, setOpenSkill] = useState(null)
+
   return (
     <section className="section services-section" id="services">
       <div className="work-full reveal">
@@ -267,22 +269,32 @@ function Services() {
           <div className="services-top">
             <div className="services-left">
               <div className="faq-list">
-                {skills.map(({ label, tooltip }) => (
-                  <div className="faq-item" key={label}>
-                    <span className="faq-question">{label}</span>
-                    <div className="hint">
-                      <span className="hint-radius" />
-                      <span className="hint-dot">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-                        </svg>
-                      </span>
-                      <div className="hint-content">
-                        <p>{tooltip}</p>
-                      </div>
+                {skills.map(({ label, tooltip }) => {
+                  const isOpen = openSkill === label
+                  return (
+                    <div className={`faq-item${isOpen ? ' skill-open' : ''}`} key={label}>
+                      <span className="faq-question">{label}</span>
+                      <button
+                        className="hint"
+                        onClick={() => setOpenSkill(isOpen ? null : label)}
+                        aria-expanded={isOpen}
+                        aria-label={`${label} details`}
+                        type="button"
+                      >
+                        <span className="hint-radius" />
+                        <span className="hint-dot">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                          </svg>
+                        </span>
+                        <div className="hint-content">
+                          <p>{tooltip}</p>
+                        </div>
+                      </button>
+                      <p className="skill-mobile-desc">{tooltip}</p>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
             <div className="services-right">
