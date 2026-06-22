@@ -992,11 +992,11 @@ p {
 
 .contact-faq-grid .faq-column {
   flex: 0 0 auto;
-  width: clamp(260px, 38%, 460px);
+  width: clamp(200px, 22%, 260px);
 }
 
 .contact-faq-grid .contact-card {
-  flex: 0 0 480px;
+  flex: 0 0 420px;
 }
 
 .reviews-copy,
@@ -1132,7 +1132,7 @@ p {
   flex-direction: column;
   align-items: flex-start;
   flex: 0 0 auto;
-  width: 240px;
+  width: 360px;
 }
 
 .location-column h2 {
@@ -1140,8 +1140,8 @@ p {
 }
 
 .globe-loading {
-  width: 240px;
-  height: 240px;
+  width: 360px;
+  height: 360px;
   margin-top: 24px;
   border-radius: 50%;
   background: radial-gradient(circle at 38% 38%, #1a3a5c, #0a1a2e);

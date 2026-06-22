@@ -370,8 +370,8 @@ function LocationGlobe() {
   return (
     <GlobeComp
       ref={globeEl}
-      width={240}
-      height={240}
+      width={360}
+      height={360}
       backgroundColor="rgba(0,0,0,0)"
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       pointsData={pins}
