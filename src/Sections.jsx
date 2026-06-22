@@ -378,41 +378,61 @@ function getGlobeSize() {
 }
 
 function LocationGlobe() {
+  const containerRef = useRef(null)
   const globeEl = useRef(null)
   const [GlobeComp, setGlobeComp] = useState(null)
   const [globeSize, setGlobeSize] = useState(getGlobeSize)
 
   useEffect(() => {
-    import('react-globe.gl').then(m => setGlobeComp(() => m.default))
+    const el = containerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        observer.disconnect()
+        import('react-globe.gl').then(m => setGlobeComp(() => m.default))
+      },
+      { rootMargin: '200px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!GlobeComp) return
     const onResize = () => setGlobeSize(getGlobeSize())
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
-  }, [])
+  }, [GlobeComp])
 
   const pins = useMemo(() => [{ lat: 51.4826, lng: 0.2342, color: '#e6313a' }], [])
 
-  if (!GlobeComp) return <div className="globe-loading" aria-hidden="true" />
-
   return (
-    <GlobeComp
-      ref={globeEl}
-      width={globeSize}
-      height={globeSize}
-      backgroundColor="rgba(0,0,0,0)"
-      globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-      pointsData={pins}
-      pointAltitude={0.07}
-      pointColor="color"
-      pointRadius={0.6}
-      atmosphereColor="rgba(120,180,255,0.5)"
-      atmosphereAltitude={0.15}
-      onGlobeReady={() => {
-        if (!globeEl.current) return
-        globeEl.current.pointOfView({ lat: 52, lng: -1, altitude: 1.8 }, 0)
-        globeEl.current.controls().autoRotate = false
-        globeEl.current.controls().enableZoom = false
-      }}
-    />
+    <div ref={containerRef}>
+      {!GlobeComp ? (
+        <div className="globe-loading" aria-hidden="true" />
+      ) : (
+        <GlobeComp
+          ref={globeEl}
+          width={globeSize}
+          height={globeSize}
+          backgroundColor="rgba(0,0,0,0)"
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+          pointsData={pins}
+          pointAltitude={0.07}
+          pointColor="color"
+          pointRadius={0.6}
+          atmosphereColor="rgba(120,180,255,0.5)"
+          atmosphereAltitude={0.15}
+          onGlobeReady={() => {
+            if (!globeEl.current) return
+            globeEl.current.pointOfView({ lat: 52, lng: -1, altitude: 1.8 }, 0)
+            globeEl.current.controls().autoRotate = false
+            globeEl.current.controls().enableZoom = false
+          }}
+        />
+      )}
+    </div>
   )
 }
 
