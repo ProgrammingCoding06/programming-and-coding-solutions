@@ -1212,10 +1212,11 @@ p {
   width: 100%;
   min-height: 200px;
   border-radius: 10px;
-  padding: 1px;
-  background: radial-gradient(circle 230px at 0% 0%, #ffffff, #0c0d0d);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   margin-top: 10px;
+  overflow: hidden;
 }
 
 .skill-card__dot {
@@ -1241,10 +1242,10 @@ p {
 
 .skill-card__inner {
   width: 100%;
-  min-height: 198px;
-  border-radius: 9px;
-  border: solid 1px #202222;
-  background: radial-gradient(circle 280px at 0% 0%, #444444, #0c0d0d);
+  min-height: 200px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1275,10 +1276,7 @@ p {
 .skill-card__label {
   font-weight: 800;
   font-size: 2.2rem;
-  background: linear-gradient(45deg, #000000 4%, #fff, #000);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+  color: #fff;
   position: relative;
   z-index: 1;
 }
