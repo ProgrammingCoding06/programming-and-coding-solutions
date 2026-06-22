@@ -1703,14 +1703,25 @@ p {
   }
 
   .services-left .faq-list {
-    gap: 20px;
+    gap: 10px;
   }
 
+  /* Card-style accordion items */
   .services-left .faq-item {
-    width: auto;
-    justify-content: flex-start;
+    width: 100%;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+
+  .services-left .skill-open.faq-item {
+    border-color: rgba(255, 255, 255, 0.25);
   }
 
   .services-left .faq-item:nth-child(1),
@@ -1739,6 +1750,7 @@ p {
     background: none;
     border: none;
     padding: 0;
+    flex-shrink: 0;
   }
 
   /* Arrow rotates when open */
@@ -1755,17 +1767,18 @@ p {
     overflow: hidden;
     opacity: 0;
     margin: 0;
+    padding-top: 0;
     font-size: 13px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.55;
-    transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    transition: max-height 0.35s ease, opacity 0.3s ease, padding-top 0.3s ease;
   }
 
   .skill-open .skill-mobile-desc {
     max-height: 80px;
     opacity: 1;
-    margin-top: 10px;
+    padding-top: 10px;
   }
 }
 
@@ -1782,9 +1795,28 @@ p {
     cursor: pointer;
   }
 
+  .faq-column .faq-list {
+    gap: 10px;
+  }
+
   .faq-column .faq-item {
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+  }
+
+  .faq-column .skill-open.faq-item {
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .faq-column .hint {
+    flex-shrink: 0;
   }
 
   .faq-column .skill-open .hint-dot svg {
@@ -1799,17 +1831,18 @@ p {
     overflow: hidden;
     opacity: 0;
     margin: 0;
+    padding-top: 0;
     font-size: 13px;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.55;
-    transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    transition: max-height 0.35s ease, opacity 0.3s ease, padding-top 0.3s ease;
   }
 
   .faq-column .skill-open .skill-mobile-desc {
     max-height: 100px;
     opacity: 1;
-    margin-top: 10px;
+    padding-top: 10px;
   }
 
   .reviews-grid {
