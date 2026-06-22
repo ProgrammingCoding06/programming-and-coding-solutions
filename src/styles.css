@@ -1140,7 +1140,7 @@ p {
 
 /* Fixed-width items so dot position is constant regardless of text length */
 .services-left .faq-item {
-  width: 280px;
+  width: 190px;
   justify-content: space-between;
 }
 
@@ -1224,7 +1224,7 @@ p {
   z-index: 5;
   bottom: 50px;
   left: 50%;
-  margin-left: 30px;
+  margin-left: 10px;
   padding: 35px 0;
   opacity: 0;
   visibility: hidden;
