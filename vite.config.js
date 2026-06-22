@@ -53,6 +53,7 @@ export default defineConfig({
                   'location-column',
                   'globe-loading',
                   'globe-wrap',
+                  'location-address',
                 ],
                 deep: [/^data-/, /aria-/, /^framer-rating/],
                 greedy: [/carousel/, /cookie/],

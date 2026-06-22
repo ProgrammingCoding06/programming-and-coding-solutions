@@ -1144,6 +1144,14 @@ p {
   white-space: nowrap;
 }
 
+.location-address {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: clamp(0.85rem, 1.7vw, 1.24rem);
+  font-weight: 500;
+  color: var(--white-65);
+  margin: 0;
+}
+
 .globe-wrap {
   margin-top: 60px;
   margin-left: -150px;
