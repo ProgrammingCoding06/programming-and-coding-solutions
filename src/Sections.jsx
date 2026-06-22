@@ -655,6 +655,19 @@ function ContactAndFaq() {
           </div>
         </div>
       </div>
+
+      <div className="container location-map reveal">
+        <iframe
+          title="Our location — RM19 1TL"
+          src="https://maps.google.com/maps?q=RM19+1TL,+England&hl=en&z=15&output=embed"
+          width="100%"
+          height="420"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
     </section>
   )
 }

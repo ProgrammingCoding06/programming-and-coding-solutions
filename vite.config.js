@@ -50,6 +50,7 @@ export default defineConfig({
                   'skill-open',
                   'skill-mobile-desc',
                   'policy-list',
+                  'location-map',
                 ],
                 deep: [/^data-/, /aria-/, /^framer-rating/],
                 greedy: [/carousel/, /cookie/],
