@@ -1182,6 +1182,9 @@ p {
   align-items: center;
   flex-shrink: 0;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .hint-dot {
