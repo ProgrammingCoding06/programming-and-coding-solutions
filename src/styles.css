@@ -965,6 +965,7 @@ p {
   flex: 0 0 64%;
   display: flex;
   flex-direction: column;
+  padding-top: 80px;
 }
 
 .services-right {
@@ -1136,15 +1137,15 @@ p {
   margin-top: 0;
 }
 
-/* Arc layout: items curve right toward screen center like a half-circle */
+/* Chevron > layout: straight diagonal lines meeting at the tip (item 5) */
 .services-left .faq-item:nth-child(1) { margin-left: 0px; }
-.services-left .faq-item:nth-child(2) { margin-left: 34px; }
-.services-left .faq-item:nth-child(3) { margin-left: 64px; }
-.services-left .faq-item:nth-child(4) { margin-left: 83px; }
-.services-left .faq-item:nth-child(5) { margin-left: 90px; }
-.services-left .faq-item:nth-child(6) { margin-left: 83px; }
-.services-left .faq-item:nth-child(7) { margin-left: 64px; }
-.services-left .faq-item:nth-child(8) { margin-left: 34px; }
+.services-left .faq-item:nth-child(2) { margin-left: 28px; }
+.services-left .faq-item:nth-child(3) { margin-left: 56px; }
+.services-left .faq-item:nth-child(4) { margin-left: 84px; }
+.services-left .faq-item:nth-child(5) { margin-left: 112px; }
+.services-left .faq-item:nth-child(6) { margin-left: 84px; }
+.services-left .faq-item:nth-child(7) { margin-left: 56px; }
+.services-left .faq-item:nth-child(8) { margin-left: 28px; }
 .services-left .faq-item:nth-child(9) { margin-left: 0px; }
 
 .faq-item {
