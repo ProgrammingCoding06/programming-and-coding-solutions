@@ -68,6 +68,7 @@ function Header({ privacy = false }) {
 
   useEffect(() => {
     document.body.classList.toggle('nav-locked', navOpen)
+    if (!navOpen) setSocialsOpen(false)
     return () => document.body.classList.remove('nav-locked')
   }, [navOpen])
 
