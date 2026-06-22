@@ -355,12 +355,21 @@ function Reviews() {
   )
 }
 
+function getGlobeSize() {
+  if (typeof window === 'undefined') return 500
+  return window.innerWidth < 980 ? Math.min(window.innerWidth - 40, 340) : 500
+}
+
 function LocationGlobe() {
   const globeEl = useRef(null)
   const [GlobeComp, setGlobeComp] = useState(null)
+  const [globeSize, setGlobeSize] = useState(getGlobeSize)
 
   useEffect(() => {
     import('react-globe.gl').then(m => setGlobeComp(() => m.default))
+    const onResize = () => setGlobeSize(getGlobeSize())
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
   }, [])
 
   const pins = useMemo(() => [{ lat: 51.4826, lng: 0.2342, color: '#e6313a' }], [])
@@ -370,8 +379,8 @@ function LocationGlobe() {
   return (
     <GlobeComp
       ref={globeEl}
-      width={500}
-      height={500}
+      width={globeSize}
+      height={globeSize}
       backgroundColor="rgba(0,0,0,0)"
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       pointsData={pins}

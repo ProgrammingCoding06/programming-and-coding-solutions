@@ -1917,7 +1917,29 @@ p {
   }
 
   .location-column {
-    display: none;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .location-column h2 {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .location-address {
+    text-align: center;
+  }
+
+  .globe-wrap {
+    margin-left: 0;
+    margin-top: 24px;
+  }
+
+  .globe-loading {
+    width: 340px;
+    height: 340px;
   }
 
   .footer-grid {
