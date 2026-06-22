@@ -658,14 +658,13 @@ function ContactAndFaq() {
 
       <div className="container location-map reveal">
         <iframe
-          title="Our location — RM19 1TL"
-          src="https://maps.google.com/maps?q=RM19+1TL,+England&hl=en&z=15&output=embed"
+          title="Our location — RM19 1TL, Purfleet, Essex"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=0.2100%2C51.4700%2C0.2600%2C51.5000&layer=mapnik&marker=51.4826%2C0.2342"
           width="100%"
           height="420"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
         />
       </div>
     </section>
