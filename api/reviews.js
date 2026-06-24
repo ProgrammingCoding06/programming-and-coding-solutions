@@ -1,33 +1,45 @@
 const FIND_URL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
 const DETAIL_URL = 'https://maps.googleapis.com/maps/api/place/details/json'
 
+async function findPlaceId(key, query) {
+  const params = new URLSearchParams({
+    input: query,
+    inputtype: 'textquery',
+    fields: 'place_id',
+    locationbias: 'point:51.4826,0.2342',
+    key,
+  })
+  const res = await fetch(`${FIND_URL}?${params}`)
+  const data = await res.json()
+  if (data.status === 'OK' && data.candidates?.length) return data.candidates[0].place_id
+  return null
+}
+
 module.exports = async function handler(req, res) {
   const key = process.env.GOOGLE_PLACES_KEY
   if (!key) return res.status(500).json({ error: 'API key not configured' })
 
-  res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=3600')
-
   try {
-    const findParams = new URLSearchParams({
-      input: 'PR REMAPS Purfleet Essex',
-      inputtype: 'textquery',
-      fields: 'place_id',
-      locationbias: 'point:51.4826,0.2342',
-      key,
-    })
-
-    const findRes = await fetch(`${FIND_URL}?${findParams}`)
-    const findData = await findRes.json()
-
-    if (findData.status !== 'OK' || !findData.candidates?.length) {
-      return res.status(200).json({ reviews: [], rating: null, total: 0 })
+    let placeId = null
+    for (const query of [
+      'PR REMAPS Purfleet Essex',
+      'PR REMAPS Purfleet',
+      'PR REMAPS RM19',
+      'Programming and Coding Solutions Purfleet',
+    ]) {
+      placeId = await findPlaceId(key, query)
+      if (placeId) break
     }
 
-    const placeId = findData.candidates[0].place_id
+    if (!placeId) {
+      res.setHeader('Cache-Control', 'no-store')
+      return res.status(200).json({ reviews: [], rating: null, total: 0 })
+    }
 
     const detailParams = new URLSearchParams({
       place_id: placeId,
       fields: 'reviews,rating,user_ratings_total',
+      language: 'en',
       key,
     })
 
@@ -35,11 +47,13 @@ module.exports = async function handler(req, res) {
     const detailData = await detailRes.json()
 
     if (detailData.status !== 'OK') {
+      res.setHeader('Cache-Control', 'no-store')
       return res.status(200).json({ reviews: [], rating: null, total: 0 })
     }
 
     const { reviews = [], rating, user_ratings_total } = detailData.result
 
+    res.setHeader('Cache-Control', 's-maxage=86400, stale-while-revalidate=3600')
     return res.status(200).json({
       reviews: reviews.map(r => ({
         name: r.author_name,
@@ -52,6 +66,7 @@ module.exports = async function handler(req, res) {
     })
   } catch (err) {
     console.error('[reviews]', err)
+    res.setHeader('Cache-Control', 'no-store')
     return res.status(500).json({ error: 'Failed to fetch reviews' })
   }
 }
