@@ -2304,6 +2304,40 @@ p {
   box-shadow: var(--star3);
 }
 
+/* ── Google Reviews ── */
+.reviews-google-badge {
+  color: #f4b400;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+.review-cta-wrap {
+  padding-top: 24px;
+}
+
+.review-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.review-cta:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
 @keyframes animStar {
   from { transform: translateY(0); }
   to   { transform: translateY(-2000px); }

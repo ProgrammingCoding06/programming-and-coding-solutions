@@ -115,23 +115,6 @@ const services = [
   },
 ]
 
-const reviews = [
-  {
-    name: 'Same-day support',
-    quote: 'Clear diagnosis, professional tools and the vehicle was out of limp mode the same day.',
-    rating: 5,
-  },
-  {
-    name: 'Mobile appointment',
-    quote: 'Arrived prepared, explained the fault path and completed the programming on site.',
-    rating: 4.9,
-  },
-  {
-    name: 'Dealer-level checks',
-    quote: 'Straight answer on what needed software and what needed further repair work.',
-    rating: 5,
-  },
-]
 
 const faqs = [
   ['Can you come to me?', 'Yes. Mobile support is available across London, Kent and Essex.'],
@@ -341,6 +324,16 @@ function Services() {
 }
 
 function Reviews() {
+  const [data, setData] = useState({ reviews: [], rating: null, total: 0 })
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    fetch('/api/reviews')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(json => { setData(json); setLoaded(true) })
+      .catch(() => setLoaded(true))
+  }, [])
+
   return (
     <section className="section reviews-section" id="reviews">
       <div className="work-full reveal">
@@ -352,10 +345,20 @@ function Reviews() {
               Practical advice, professional equipment and clear communication from first message to
               final road test.
             </p>
+            {data.rating && (
+              <p className="reviews-google-badge">
+                ★ {data.rating.toFixed(1)} · {data.total} Google {data.total === 1 ? 'review' : 'reviews'}
+              </p>
+            )}
           </div>
           <div className="review-items">
-            {reviews.map((review) => (
-              <div className="work-item" key={review.name}>
+            {loaded && data.reviews.length === 0 && (
+              <div className="work-item">
+                <p className="work-item__title">Be the first to leave a review on Google.</p>
+              </div>
+            )}
+            {data.reviews.map((review) => (
+              <div className="work-item" key={review.name + review.time}>
                 <StarRating
                   rating={review.rating}
                   starSize={18}
@@ -363,9 +366,21 @@ function Reviews() {
                   filledColor={accentRed}
                 />
                 <strong className="work-item__label">{review.name}</strong>
-                <p className="work-item__title">"{review.quote}"</p>
+                <p className="work-item__title">"{review.text}"</p>
+                <span className="work-item__num">{review.time}</span>
               </div>
             ))}
+          </div>
+          <div className="review-cta-wrap">
+            <a
+              href="https://g.page/r/CeFa9CfmeUS3EBM/review"
+              target="_blank"
+              rel="noreferrer"
+              className="review-cta"
+            >
+              Leave a Google Review
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>
