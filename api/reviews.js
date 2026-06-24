@@ -22,10 +22,10 @@ module.exports = async function handler(req, res) {
   try {
     let placeId = null
     for (const query of [
+      'Programming and Coding Solutions Purfleet Essex',
+      'Programming and Coding Solutions RM19',
       'PR REMAPS Purfleet Essex',
       'PR REMAPS Purfleet',
-      'PR REMAPS RM19',
-      'Programming and Coding Solutions Purfleet',
     ]) {
       placeId = await findPlaceId(key, query)
       if (placeId) break
