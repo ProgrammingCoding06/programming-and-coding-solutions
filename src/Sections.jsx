@@ -52,7 +52,7 @@ const diagnosticSteps = [
   },
   {
     number: '03',
-    label: 'ECU Coding',
+    label: 'ECU Coding/Programming',
     title: 'Module coding, adaptations and configuration support.',
     body: 'Coding work is carried out carefully after vehicle checks, module scans and software compatibility review.',
     tags: ['Adaptations', 'Modules', 'Configuration'],
@@ -75,7 +75,7 @@ const skills = [
   { label: 'AdBlue', tooltip: 'Countdown warnings, dosing faults and pressure issues diagnosed and resolved.' },
   { label: 'Live data', tooltip: 'Real-time sensor monitoring and parameter analysis during diagnostics.' },
   { label: 'Remapping', tooltip: 'Driveability-focused ECU calibration for smoother power and torque response.' },
-  { label: 'ECU coding', tooltip: 'Module coding, adaptations and configuration completed after full vehicle checks.' },
+  { label: 'ECU coding/Programming', tooltip: 'Module coding, adaptations and configuration completed after full vehicle checks.' },
   { label: 'Diagnostics', tooltip: 'Dealer-level diagnostic scanning across all major manufacturers.' },
   { label: 'Mobile support', tooltip: 'We come to you — available across London, Kent and Essex.' },
 ]

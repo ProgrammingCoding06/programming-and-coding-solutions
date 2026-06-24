@@ -170,7 +170,7 @@ function Hero() {
         <h1 className="hero-line">
           <span className="hero-line-1">Vehicle software solutions with</span>
           <br />
-          <span className="text-accent hero-line-2">diagnostic precision.</span>
+          <span className="text-accent hero-line-2">dealer-level diagnostics</span>
         </h1>
         <p>
           Programming &amp; Coding Solutions provides mobile AdBlue, SCR, NOx, EGR, ECU remapping
