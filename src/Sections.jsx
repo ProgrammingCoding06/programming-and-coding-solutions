@@ -798,7 +798,8 @@ function Footer() {
             <div className="footer-links">
               <a href={phoneHref}>{phoneDisplay}</a>
               <a href={`mailto:${email}`}>{email}</a>
-              <span>London, Kent and Essex</span>
+              <span>Purfleet, Essex, RM19 1TL</span>
+              <span>London · Kent · Essex</span>
             </div>
           </div>
         </div>
