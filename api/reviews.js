@@ -9,7 +9,7 @@ module.exports = async function handler(req, res) {
 
   try {
     const findParams = new URLSearchParams({
-      input: 'Programming and Coding Solutions Purfleet',
+      input: 'PR REMAPS Purfleet Essex',
       inputtype: 'textquery',
       fields: 'place_id',
       locationbias: 'point:51.4826,0.2342',
