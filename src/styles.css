@@ -1179,6 +1179,12 @@ p {
   padding-left: 24px;
 }
 
+.services-left .faq-item:nth-child(7) .faq-question {
+  padding-left: 0;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
 /* Fixed-width items so dot position is constant regardless of text length */
 .services-left .faq-item {
   width: 160px;
@@ -1912,6 +1918,11 @@ p {
 
   .services-left .faq-question {
     padding-left: 0;
+  }
+
+  .services-left .faq-item:nth-child(7) .faq-question {
+    font-size: 16px;
+    white-space: normal;
   }
 
   /* Hide desktop tooltip */
