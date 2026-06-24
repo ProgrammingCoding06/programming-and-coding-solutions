@@ -2241,13 +2241,14 @@ p {
     width: 100%;
   }
 
-  /* Horizontal wrapping row */
+  /* Horizontal wrapping row — spread evenly across full width */
   .services-left .faq-list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    gap: 8px 32px;
+    justify-content: space-between;
+    gap: 8px 0;
     margin-top: 0;
   }
 
