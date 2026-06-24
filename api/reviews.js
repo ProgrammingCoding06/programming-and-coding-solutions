@@ -1,14 +1,9 @@
 const FIND_URL = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
 const DETAIL_URL = 'https://maps.googleapis.com/maps/api/place/details/json'
 
-async function findPlaceId(key, query) {
-  const params = new URLSearchParams({
-    input: query,
-    inputtype: 'textquery',
-    fields: 'place_id',
-    locationbias: 'point:51.4826,0.2342',
-    key,
-  })
+async function findPlaceId(key, input, inputtype) {
+  const params = new URLSearchParams({ input, inputtype, fields: 'place_id', key })
+  if (inputtype === 'textquery') params.set('locationbias', 'point:51.4826,0.2342')
   const res = await fetch(`${FIND_URL}?${params}`)
   const data = await res.json()
   if (data.status === 'OK' && data.candidates?.length) return data.candidates[0].place_id
@@ -20,15 +15,18 @@ module.exports = async function handler(req, res) {
   if (!key) return res.status(500).json({ error: 'API key not configured' })
 
   try {
-    let placeId = null
-    for (const query of [
-      'Programming and Coding Solutions Purfleet Essex',
-      'Programming and Coding Solutions RM19',
-      'PR REMAPS Purfleet Essex',
-      'PR REMAPS Purfleet',
-    ]) {
-      placeId = await findPlaceId(key, query)
-      if (placeId) break
+    // Phone number search is the most reliable — uniquely identifies the business
+    let placeId = await findPlaceId(key, '+447783597186', 'phonenumber')
+
+    if (!placeId) {
+      for (const query of [
+        'Programming and Coding Solutions Purfleet Essex',
+        'Programming and Coding Solutions RM19',
+        'PR REMAPS Purfleet Essex',
+      ]) {
+        placeId = await findPlaceId(key, query, 'textquery')
+        if (placeId) break
+      }
     }
 
     if (!placeId) {
