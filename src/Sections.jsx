@@ -273,7 +273,7 @@ function Services() {
                 {skills.map(({ label, tooltip }) => {
                   const isOpen = openSkill === label
                   return (
-                    <div className={`faq-item${isOpen ? ' skill-open' : ''}`} key={label}>
+                    <div className={`faq-item${isOpen ? ' skill-open' : ''}`} key={label} data-tooltip={tooltip}>
                       <span className="faq-question">{label}</span>
                       <button
                         className="hint"

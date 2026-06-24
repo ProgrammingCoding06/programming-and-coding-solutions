@@ -2233,6 +2233,82 @@ p {
   }
 }
 
+/* ── Services skills: horizontal word list with hover tooltip (desktop) ── */
+@media (min-width: 981px) {
+  /* Switch from grid/chevron to horizontal wrapping row */
+  .services-left .faq-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 28px;
+    margin-top: 0;
+  }
+
+  /* Reset all chevron margin offsets */
+  .services-left .faq-item:nth-child(n) {
+    margin-left: 0;
+  }
+
+  /* Auto-size each item; position relative for the tooltip */
+  .services-left .faq-item,
+  .services-left .faq-item:nth-child(7) {
+    width: auto;
+    position: relative;
+    cursor: default;
+  }
+
+  /* No indent on labels */
+  .services-left .faq-question,
+  .services-left .faq-item:nth-child(7) .faq-question {
+    padding-left: 0;
+    white-space: nowrap;
+  }
+
+  /* Remove circle arrow button on desktop */
+  .services-left .hint {
+    display: none;
+  }
+
+  /* Subtle underline on hover so it feels interactive */
+  .services-left .faq-item:hover .faq-question {
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+    text-underline-offset: 4px;
+  }
+
+  /* Tooltip above the hovered word */
+  .services-left .faq-item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+    background: rgba(8, 8, 8, 0.92);
+    color: rgba(255, 255, 255, 0.9);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 7px 11px;
+    border-radius: 6px;
+    width: max-content;
+    max-width: 220px;
+    white-space: normal;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 20;
+    transition: opacity 220ms, visibility 220ms;
+  }
+
+  .services-left .faq-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
