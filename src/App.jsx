@@ -173,8 +173,9 @@ function Hero() {
           <span className="text-accent hero-line-2">dealer-level diagnostics</span>
         </h1>
         <p>
-          Programming &amp; Coding Solutions provides mobile AdBlue, SCR, NOx, EGR, ECU remapping
-          and dealer-level diagnostics across London, Kent and Essex.
+          Programming &amp; Coding Solutions are vehicle software programming specialists —
+          providing mobile AdBlue, SCR, NOx, EGR, ECU remapping and dealer-level diagnostics
+          across London, Kent and Essex.
         </p>
 
         <div className="hero-actions">

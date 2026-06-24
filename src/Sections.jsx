@@ -214,8 +214,9 @@ function About() {
               <SectionTag>About</SectionTag>
               <h2>Diagnostic-led programming, not guesswork.</h2>
               <p className="about-subtitle">
-                Every job starts by inspecting the fault, confirming the route, then completing
-                suitable coding, calibration or ECU work with professional tools.
+                Every job starts with a full vehicle computer scan to identify the software fault,
+                confirm the programming route, then complete coding, calibration or ECU programming
+                with the same professional tools used by main dealers.
               </p>
             </div>
             <div className="about-stats">
