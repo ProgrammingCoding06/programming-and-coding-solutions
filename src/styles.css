@@ -2311,9 +2311,7 @@ p {
     position: absolute;
     bottom: calc(100% + 32px);
     left: 0;
-    max-width: 210px;
-    white-space: normal;
-    text-align: left;
+    white-space: nowrap;
     color: rgba(255, 255, 255, 0.88);
     font-family: inherit;
     font-size: 0.8rem;
