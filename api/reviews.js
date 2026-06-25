@@ -11,10 +11,29 @@ module.exports = async function handler(req, res) {
         'X-Goog-FieldMask': 'rating,userRatingCount,reviews',
       },
     })
-    const place = await detailRes.json()
-    const { rating, userRatingCount, reviews = [] } = place
 
-    res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=600')
+    const place = await detailRes.json()
+
+    // Log to Vercel function logs for diagnostics
+    // eslint-disable-next-line no-console
+    console.log('[reviews] HTTP', detailRes.status, '| keys:', Object.keys(place).join(', ') || '(none)')
+
+    if (!detailRes.ok || place.error) {
+      // eslint-disable-next-line no-console
+      console.error('[reviews] API error:', JSON.stringify(place.error ?? place))
+      res.setHeader('Cache-Control', 'no-store')
+      return res.status(502).json({ error: 'Places API error', reviews: [], rating: null, total: 0 })
+    }
+
+    const { rating, userRatingCount, reviews = [] } = place
+    const hasData = rating !== null && rating !== undefined || reviews.length > 0
+
+    // Only cache when Google gave us real data; empty results must not be cached
+    res.setHeader(
+      'Cache-Control',
+      hasData ? 's-maxage=3600, stale-while-revalidate=600' : 'no-store'
+    )
+
     return res.status(200).json({
       reviews: reviews.map(r => ({
         name: r.authorAttribution?.displayName || 'Anonymous',
@@ -26,7 +45,8 @@ module.exports = async function handler(req, res) {
       total: userRatingCount ?? 0,
     })
   } catch (err) {
-    console.error('[reviews]', err)
+    // eslint-disable-next-line no-console
+    console.error('[reviews] fetch failed:', err.message)
     res.setHeader('Cache-Control', 'no-store')
     return res.status(500).json({ error: 'Failed to fetch reviews' })
   }
