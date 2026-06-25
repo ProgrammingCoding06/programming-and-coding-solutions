@@ -320,15 +320,6 @@ function Services() {
 }
 
 function Reviews() {
-  const [data, setData] = useState({ reviews: [], rating: null, total: 0 })
-
-  useEffect(() => {
-    fetch('/api/reviews')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(json => setData(json))
-      .catch(() => {})
-  }, [])
-
   return (
     <section className="section reviews-section" id="reviews">
       <div className="work-full reveal">
@@ -340,26 +331,6 @@ function Reviews() {
               Practical advice, professional equipment and clear communication from first message to
               final road test.
             </p>
-            {data.rating && (
-              <p className="reviews-google-badge">
-                ★ {data.rating.toFixed(1)} · {data.total} Google {data.total === 1 ? 'review' : 'reviews'}
-              </p>
-            )}
-          </div>
-          <div className="review-items">
-            {data.reviews.map((review) => (
-              <div className="work-item" key={review.name + review.time}>
-                <StarRating
-                  rating={review.rating}
-                  starSize={18}
-                  textSize={15}
-                  filledColor={accentRed}
-                />
-                <strong className="work-item__label">{review.name}</strong>
-                <p className="work-item__title">"{review.text}"</p>
-                <span className="work-item__num">{review.time}</span>
-              </div>
-            ))}
           </div>
           <div className="review-cta-wrap">
             <a
@@ -368,7 +339,7 @@ function Reviews() {
               rel="noreferrer"
               className="review-cta"
             >
-              Leave a Google Review
+              View &amp; Leave a Google Review
               <ArrowUpRight size={16} aria-hidden="true" />
             </a>
           </div>
