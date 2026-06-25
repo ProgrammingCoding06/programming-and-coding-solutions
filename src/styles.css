@@ -2289,13 +2289,14 @@ p {
   }
 
   /* ── Angled connector line (::before) ─────────────────────────────── */
+  /* height 34.5px × cos(22°) = 32px vertical rise; × sin(22°) = 13px horizontal drift */
   .services-left .faq-item::before {
     content: '';
     position: absolute;
     bottom: 100%;
     left: 0;
     width: 1px;
-    height: 32px;
+    height: 34.5px;
     background: rgba(255, 255, 255, 0.45);
     transform-origin: left bottom;
     transform: rotate(22deg);
@@ -2306,11 +2307,12 @@ p {
   }
 
   /* ── Tooltip text with horizontal underline (::after) ─────────────── */
+  /* left: 13px = exact horizontal position of the angled line's top */
   .services-left .faq-item::after {
     content: attr(data-tooltip);
     position: absolute;
     bottom: calc(100% + 32px);
-    left: 0;
+    left: 13px;
     white-space: nowrap;
     color: rgba(255, 255, 255, 0.88);
     font-family: inherit;
@@ -2324,6 +2326,19 @@ p {
     visibility: hidden;
     z-index: 20;
     transition: opacity 200ms, visibility 200ms;
+  }
+
+  /* ── Last item (Mobile support): mirror the connector to the right ── */
+  .services-left .faq-item:last-child::before {
+    left: auto;
+    right: 0;
+    transform-origin: right bottom;
+    transform: rotate(-22deg);
+  }
+
+  .services-left .faq-item:last-child::after {
+    left: auto;
+    right: 13px;
   }
 
   .services-left .faq-item:hover::before,
