@@ -321,13 +321,12 @@ function Services() {
 
 function Reviews() {
   const [data, setData] = useState({ reviews: [], rating: null, total: 0 })
-  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     fetch('/api/reviews')
       .then(r => r.ok ? r.json() : Promise.reject())
-      .then(json => { setData(json); setLoaded(true) })
-      .catch(() => setLoaded(true))
+      .then(json => setData(json))
+      .catch(() => {})
   }, [])
 
   return (
@@ -348,11 +347,6 @@ function Reviews() {
             )}
           </div>
           <div className="review-items">
-            {loaded && data.reviews.length === 0 && (
-              <div className="work-item">
-                <p className="work-item__title">Be the first to leave a review on Google.</p>
-              </div>
-            )}
             {data.reviews.map((review) => (
               <div className="work-item" key={review.name + review.time}>
                 <StarRating

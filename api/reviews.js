@@ -5,30 +5,26 @@ module.exports = async function handler(req, res) {
   if (!key) return res.status(500).json({ error: 'API key not configured' })
 
   try {
-    const detailRes = await fetch(`https://places.googleapis.com/v1/places/${PLACE_ID}`, {
-      headers: {
-        'X-Goog-Api-Key': key,
-        'X-Goog-FieldMask': 'rating,userRatingCount,reviews',
-      },
-    })
+    const url =
+      `https://maps.googleapis.com/maps/api/place/details/json` +
+      `?place_id=${PLACE_ID}&fields=rating,user_ratings_total,reviews&language=en&key=${key}`
 
-    const place = await detailRes.json()
+    const detailRes = await fetch(url)
+    const data = await detailRes.json()
 
-    // Log to Vercel function logs for diagnostics
     // eslint-disable-next-line no-console
-    console.log('[reviews] HTTP', detailRes.status, '| keys:', Object.keys(place).join(', ') || '(none)')
+    console.log('[reviews] status:', data.status, '| reviews:', data.result?.reviews?.length ?? 0)
 
-    if (!detailRes.ok || place.error) {
+    if (data.status !== 'OK') {
       // eslint-disable-next-line no-console
-      console.error('[reviews] API error:', JSON.stringify(place.error ?? place))
+      console.error('[reviews] API error:', data.status, data.error_message ?? '')
       res.setHeader('Cache-Control', 'no-store')
-      return res.status(502).json({ error: 'Places API error', reviews: [], rating: null, total: 0 })
+      return res.status(502).json({ error: data.status, reviews: [], rating: null, total: 0 })
     }
 
-    const { rating, userRatingCount, reviews = [] } = place
-    const hasData = rating !== null && rating !== undefined || reviews.length > 0
+    const { rating, user_ratings_total: total, reviews = [] } = data.result || {}
+    const hasData = rating !== undefined || reviews.length > 0
 
-    // Only cache when Google gave us real data; empty results must not be cached
     res.setHeader(
       'Cache-Control',
       hasData ? 's-maxage=3600, stale-while-revalidate=600' : 'no-store'
@@ -36,13 +32,13 @@ module.exports = async function handler(req, res) {
 
     return res.status(200).json({
       reviews: reviews.map(r => ({
-        name: r.authorAttribution?.displayName || 'Anonymous',
+        name: r.author_name || 'Anonymous',
         rating: r.rating,
-        text: r.text?.text || '',
-        time: r.relativePublishTimeDescription,
+        text: r.text || '',
+        time: r.relative_time_description,
       })),
       rating: rating ?? null,
-      total: userRatingCount ?? 0,
+      total: total ?? 0,
     })
   } catch (err) {
     // eslint-disable-next-line no-console
